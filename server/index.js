@@ -47,7 +47,7 @@ app.post('/vehicleinfo', (req, res, next) => {
 
 });
 
-app.get('/vehicleinfo/:vehicleId', (req, res, next) => {
+app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
   const vehicleId = parseInt(req.params.vehicleId, 10);
   if (!Number.isInteger(vehicleId) || vehicleId < 1) {
     throw new ClientError(400, 'vehicleId must be a positive integer');
