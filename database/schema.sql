@@ -16,67 +16,67 @@ drop schema "public" cascade;
 create schema "public";
 
 CREATE TABLE "trips" (
-    "tripId" serial NOT NULL,
-    "startLat" double precision NOT NULL,
-    "startLng" double precision NOT NULL,
-    "stopLat" double precision NOT NULL,
-    "stopLng" double precision NOT NULL,
-    "topSpeed" integer NOT NULL,
-    "vehicleId" serial NOT NULL,
-    "startAddress" TEXT NOT NULL,
-    "stopAddress" TEXT NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
+    "tripId" serial ,
+    "startLat" double precision ,
+    "startLng" double precision ,
+    "stopLat" double precision ,
+    "stopLng" double precision ,
+    "topSpeed" integer ,
+    "vehicleId" serial ,
+    "startAddress" TEXT ,
+    "stopAddress" TEXT ,
+    "createdAt" timestamp with time zone,
     CONSTRAINT "trips_pk" PRIMARY KEY ("tripId")
 ) WITH (
   OIDS=FALSE
 );
 CREATE TABLE "vehicles" (
-    "vehicleId" serial NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "name" TEXT NOT NULL,
-    "make" TEXT NOT NULL,
-    "model" TEXT NOT NULL,
-    "year" integer NOT NULL,
-    "speedAlert" integer NOT NULL,
-    "brakeAlert" BOOLEAN NOT NULL,
-    "accelerationAlert" BOOLEAN NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL,
-    "photo" TEXT NOT NULL,
+    "vehicleId" serial ,
+    "createdAt" timestamp with time zone ,
+    "name" TEXT ,
+    "make" TEXT ,
+    "model" TEXT ,
+    "year" integer ,
+    "speedAlert" integer ,
+    "brakeAlert" BOOLEAN ,
+    "accelerationAlert" BOOLEAN ,
+    "updatedAt" timestamp with time zone ,
+    "photo" TEXT ,
     CONSTRAINT "vehicles_pk" PRIMARY KEY ("vehicleId")
 ) WITH (
   OIDS=FALSE
 );
 CREATE TABLE "drivers" (
-    "driverId" serial NOT NULL,
-    "name" TEXT NOT NULL,
-    "phone" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL,
-    "vehicleId" serial NOT NULL,
+    "driverId" serial ,
+    "name" TEXT ,
+    "phone" TEXT ,
+    "email" TEXT ,
+    "createdAt" timestamp with time zone ,
+    "updatedAt" timestamp with time zone ,
+    "vehicleId" serial ,
     CONSTRAINT "drivers_pk" PRIMARY KEY ("driverId")
 ) WITH (
   OIDS=FALSE
 );
 CREATE TABLE "users" (
-    "userId" serial NOT NULL,
-    "username" serial NOT NULL UNIQUE,
-    "hashedPassword" TEXT NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL,
+    "userId" serial ,
+    "username" serial  UNIQUE,
+    "hashedPassword" TEXT ,
+    "createdAt" timestamp with time zone ,
+    "updatedAt" timestamp with time zone ,
     CONSTRAINT "users_pk" PRIMARY KEY ("userId")
 ) WITH (
   OIDS=FALSE
 );
 CREATE TABLE "stops" (
-    "stopId" serial NOT NULL,
-    "stopLat" double precision NOT NULL,
-    "stopLng" double precision NOT NULL,
-    "stopAddress" TEXT NOT NULL,
-    "createdAt" timestamp with time zone NOT NULL,
-    "vehicleId" serial NOT NULL,
-    "beginTime" TIMESTAMP NOT NULL,
-    "endTime" TIMESTAMP NOT NULL,
+    "stopId" serial ,
+    "stopLat" double precision ,
+    "stopLng" double precision ,
+    "stopAddress" TEXT ,
+    "createdAt" timestamp with time zone ,
+    "vehicleId" serial ,
+    "beginTime" TIMESTAMP ,
+    "endTime" TIMESTAMP,
     CONSTRAINT "stops_pk" PRIMARY KEY ("stopId")
 ) WITH (
   OIDS=FALSE
