@@ -16,15 +16,7 @@ input {
   width: 90px;
 }
 
-.right {
-  /* float: right; */
-
-  /* position: relative; */
-
-  /* right: 0; */
-}
-
-.flex-end {
+.align-right {
   text-align: right;
 }
 

@@ -93,7 +93,7 @@ export default class VehicleProfile extends React.Component {
 
             </div>
             <div className='align-right'>
-              <button className="right" type="submit" value="Submit">Save</button>
+              <button type="submit" value="Submit">Save</button>
             </div>
           </form>
         </div>
