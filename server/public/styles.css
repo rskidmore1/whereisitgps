@@ -1,0 +1,47 @@
+.box-two-thirds {
+  background-color: #e5ecf4;
+  border-radius: 28px;
+  width: 320px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+input {
+  width: 90px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.font-regular {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.blue-text {
+  color: #0d3b66;
+}
+
+td {
+  padding-right: 0.5rem;
+}
+
+.save-button {
+  background-color: #bad2ed;
+  border: 0;
+  padding: 0.3rem 1rem;
+}
+
+.box-padding {
+  padding: 0.5rem;
+}
+
+.rounded-button {
+  border-radius: 5px;
+}
