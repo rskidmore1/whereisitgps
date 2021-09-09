@@ -57,41 +57,46 @@ export default class VehicleProfile extends React.Component {
           </div>
         </div >
 <br></br>
-        <form onSubmit={this.handleSubmit}>
-         <div className="row box-two-thirds">
-            <div className="width-50 vehicle-info-div">
-              <label>
-                Name
-                <input type="text" defaultValue={name} />
-              </label><br></br>
-              <label>
-                Year
-                <input type="number" defaultValue={year} />
-              </label><br></br>
-              <label>
-                Make
-                <input type="text" defaultValue={make} />
-              </label><br></br>
+
+        <div className="box-two-thirds">
+          <form onSubmit={this.handleSubmit}>
+
+          <div className="row">
+              <div className="width-50 vehicle-info-div">
+                <label>
+                  Name
+                  <input type="text" defaultValue={name} />
+                </label><br></br>
+                <label>
+                  Year
+                  <input type="number" defaultValue={year} />
+                </label><br></br>
+                <label>
+                  Make
+                  <input type="text" defaultValue={make} />
+                </label><br></br>
+              </div>
+
+              <div className="width-50 vehicle-info-div">
+                <label>
+                  Color
+                  <input type="text" defaultValue={color} />
+                </label><br></br>
+                <label>
+                  Model<input type="text" defaultValue={model} />
+                </label><br></br>
+                <label>
+                  Plate
+                  <input type="number" defaultValue={plate} />
+                </label><br></br>
+              </div>
+
             </div>
-
-            <div className="width-50 vehicle-info-div">
-              <label>
-                Color
-                <input type="text" defaultValue={color} />
-              </label><br></br>
-              <label>
-                Model<input type="text" defaultValue={model} />
-              </label><br></br>
-              <label>
-                Plate
-                <input type="number" defaultValue={plate} />
-              </label><br></br>
+            <div className='align-right'>
+              <button className="right" type="submit" value="Submit">Save</button>
             </div>
-
-          </div>
-
-          <button type="submit" value="Submit">Submit</button>
-        </form>
+          </form>
+        </div>
 
       </div>
     );

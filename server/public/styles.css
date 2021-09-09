@@ -1,6 +1,7 @@
 .box-two-thirds {
   background-color: #e5ecf4;
   border-radius: 28px;
+  width: 320px;
 }
 
 button {
@@ -13,6 +14,18 @@ button {
 
 input {
   width: 90px;
+}
+
+.right {
+  /* float: right; */
+
+  /* position: relative; */
+
+  /* right: 0; */
+}
+
+.flex-end {
+  text-align: right;
 }
 
 .vehicle-info-div {
