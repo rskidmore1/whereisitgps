@@ -3,7 +3,7 @@ import React from 'react';
 export default class VehicleProfile extends React.Component {
   constructor(props) {
     super(props);
-    const vId = 2;// Replace this when it time
+    const vId = 2;// Replace this when creating vehicle list feature
     this.state = { vehicle: {}, vehicleId: vId };
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -44,57 +44,100 @@ export default class VehicleProfile extends React.Component {
 
     return (
       <div>
-        <div className="row box-two-thirds">
-          <div className="width-50 vehicle-info-div">
-            <p>name {name}</p>
-            <p>year {year}</p>
-            <p>make {make}</p>
-          </div>
-          <div className="width-50 vehicle-info-div">
-            <p>color {color}</p>
-            <p>model {model}</p>
-            <p>plate {plate}</p>
+        <div className=" box-two-thirds font-regular blue-text ">
+          <div className="row vehicle-info-row box-padding">
+
+            <div className="width-50 vehicle-info-col ">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Name:</td>
+                      <td>{name}</td>
+                    </tr>
+                    <tr>
+                      <td>Year:</td>
+                      <td>{year}</td>
+                    </tr>
+                    <tr>
+                      <td>Make:</td>
+                      <td>{make}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            <div className="width-50 vehicle-info-col ">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Color:</td>
+                      <td>{color}</td>
+                    </tr>
+                    <tr>
+                      <td>Model:</td>
+                      <td>{model}</td>
+                    </tr>
+                    <tr>
+                      <td>Plate:</td>
+                      <td>{plate}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
           </div>
         </div >
-<br></br>
+        <br></br>
 
-        <div className="box-two-thirds">
+        <div className="box-two-thirds vehicle-info-edit font-regular blue-text">
           <form onSubmit={this.handleSubmit}>
 
-          <div className="row">
-              <div className="width-50 vehicle-info-div">
-                <label>
-                  Name
-                  <input type="text" defaultValue={name} />
-                </label><br></br>
-                <label>
-                  Year
-                  <input type="number" defaultValue={year} />
-                </label><br></br>
-                <label>
-                  Make
-                  <input type="text" defaultValue={make} />
-                </label><br></br>
+            <div className="row vehicle-info-row box-padding" >
+              <div className="width-50 vehicle-info-col">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><label>Name:</label></td>
+                        <td><input type="text" defaultValue={name} /></td>
+                      </tr>
+                      <tr>
+                        <td><label>Year:</label></td>
+                        <td><input type="number" defaultValue={year} /></td>
+                      </tr>
+                      <tr>
+                        <td><label>Make:</label></td>
+                        <td><input type="text" defaultValue={make} /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
               </div>
 
-              <div className="width-50 vehicle-info-div">
-                <label>
-                  Color
-                  <input type="text" defaultValue={color} />
-                </label><br></br>
-                <label>
-                  Model<input type="text" defaultValue={model} />
-                </label><br></br>
-                <label>
-                  Plate
-                  <input type="number" defaultValue={plate} />
-                </label><br></br>
+              <div className="width-50 vehicle-info-col">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><label>Color:</label> </td>
+                      <td> <input type="text" defaultValue={color} /></td>
+                    </tr>
+                    <tr>
+                      <td><label>Model:</label> </td>
+                      <td><input type="text" defaultValue={model} /> </td>
+                    </tr>
+                    <tr>
+                      <td><label>Plate:</label> </td>
+                      <td><input type="number" defaultValue={plate} /> </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
             </div>
-            <div className='align-right'>
-              <button type="submit" value="Submit">Save</button>
-            </div>
+
+          <div className='align-right'>
+              <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Save</button>
+          </div>
+
           </form>
         </div>
 

@@ -20,6 +20,28 @@ input {
   text-align: right;
 }
 
-.vehicle-info-div {
-  width: 150px;
+.font-regular {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.blue-text {
+  color: #0d3b66;
+}
+
+td {
+  padding-right: 0.5rem;
+}
+
+.save-button {
+  background-color: #bad2ed;
+  border: 0;
+  padding: 0.3rem 1rem;
+}
+
+.box-padding {
+  padding: 0.5rem;
+}
+
+.rounded-button {
+  border-radius: 5px;
 }
