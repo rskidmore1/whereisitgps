@@ -1,0 +1,20 @@
+.box-two-thirds {
+  background-color: #e5ecf4;
+  border-radius: 28px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+input {
+  width: 90px;
+}
+
+.vehicle-info-div {
+  width: 150px;
+}

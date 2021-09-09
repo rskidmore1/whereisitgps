@@ -37,7 +37,7 @@ CREATE TABLE "vehicles" (
     "make" TEXT ,
     "model" TEXT ,
     "color" TEXT,
-    "Plate" integer,
+    "plate" integer, --fix this case
     "year" integer ,
     "speedAlert" integer ,
     "brakeAlert" BOOLEAN ,

@@ -7,8 +7,8 @@ const pg = require('pg');
 
 const app = express();
 
-const db = new pg.Pool({ // What is this?
-  connectionString: process.env.DATABASE_URL, // Pulls the env var
+const db = new pg.Pool({
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
@@ -22,19 +22,20 @@ const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
 
-app.post('/vehicleinfo', (req, res, next) => {
+app.post('/api/vehicleinfo', (req, res, next) => {
 
-  const { name, make, model, year } = req.body;
+  const { name, make, model, year, color, plate } = req.body;
   if (!name || !model) {
     throw new ClientError(400, 'name and model are required fields');
+
   }
   const sql = `
-    insert into "vehicles" ("name", "make", "model", "year", "createdAt")
-        values ($1, $2, $3, $4, now())
+    insert into "vehicles" ("name", "make", "model", "year", "color",  "plate", "createdAt")
+        values ($1, $2, $3, $4, $5, $6, now())
         returning *
   `; // -make sure to update this code when creating the update function
 
-  const params = [name, make, model, year];
+  const params = [name, make, model, year, color, plate];
 
   db.query(sql, params)
     .then(result => {
