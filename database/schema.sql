@@ -26,6 +26,7 @@ CREATE TABLE "trips" (
     "startAddress" TEXT ,
     "stopAddress" TEXT ,
     "createdAt" timestamp with time zone,
+    "rawJson" json,
     CONSTRAINT "trips_pk" PRIMARY KEY ("tripId")
 ) WITH (
   OIDS=FALSE
