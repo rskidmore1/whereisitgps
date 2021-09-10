@@ -56,7 +56,7 @@ CREATE TABLE "drivers" (
     "email" TEXT ,
     "createdAt" timestamp with time zone ,
     "updatedAt" timestamp with time zone ,
-    "vehicleId" serial ,
+    "vehicleId" integer ,
     CONSTRAINT "drivers_pk" PRIMARY KEY ("driverId")
 ) WITH (
   OIDS=FALSE
@@ -85,5 +85,6 @@ CREATE TABLE "stops" (
   OIDS=FALSE
 );
 ALTER TABLE "trips" ADD CONSTRAINT "trips_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
-ALTER TABLE "drivers" ADD CONSTRAINT "drivers_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
+-- ALTER TABLE "drivers" ADD CONSTRAINT "drivers_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
+ALTER TABLE "drivers" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
 ALTER TABLE "stops" ADD CONSTRAINT "stops_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
