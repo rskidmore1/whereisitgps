@@ -33,7 +33,7 @@ app.post('/api/vehicleinfo', (req, res, next) => {
     insert into "vehicles" ("name", "make", "model", "year", "color",  "plate", "createdAt")
         values ($1, $2, $3, $4, $5, $6, now())
         returning *
-  `; // -make sure to update this code when creating the update function
+  `;
 
   const params = [name, make, model, year, color, plate];
 
@@ -75,6 +75,32 @@ app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+
+app.post('/api/driverinfo', (req, res, next) => {
+
+  const { name, phone, email } = req.body;
+  if (!name || !phone || !email) {
+    throw new ClientError(400, 'name, phone, and email are required fields');
+
+  }
+  const sql = `
+    insert into "drivers" ("name", "phone", "email", "vehicleId", "createdAt")
+        values ($1, $2, $3, 2, now())
+        returning *
+  `; // Enter vehicle ID from vehicle profile
+
+  const params = [name, phone, email];
+
+  db.query(sql, params)
+    .then(result => {
+      const dri = result.rows;
+      res.json(dri);
+    })
+    .catch(err => {
+      next(err);
+    });
+
 });
 
 app.listen(process.env.PORT, () => {
