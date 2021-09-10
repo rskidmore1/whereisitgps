@@ -27,9 +27,8 @@ class Routing extends React.Component {
 
   onMapClicked(mapProps, map, clickEvent) {
 
-    const eventRaw = JSON.stringify(clickEvent);
-    const event = JSON.parse(eventRaw);
-    const point = { counter: this.state.counter, coords: { lat: event.latLng.lat, lng: event.latLng.lng } };
+    const event = clickEvent;
+    const point = { counter: this.state.counter, coords: { lat: event.latLng.lat(), lng: event.latLng.lng() } };
     const routeArr = this.state.route;
     routeArr.push(point);
     this.setState({ route: routeArr });
@@ -44,8 +43,6 @@ class Routing extends React.Component {
     for (let i = 0; i < this.state.route.length; i++) {
       link = `${link}${this.state.route[i].coords.lat},${this.state.route[i].coords.lng}/`;
     }
-    // eslint-disable-next-line no-console
-    console.log(link);
 
   }
 
