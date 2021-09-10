@@ -7,15 +7,6 @@ export default class DriverProfile extends React.Component {
     this.state = { driver: {}, driverId: dId };
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    // Using for driver enter feature
-    // fetch(`/api/driverinfo/${dId}`)
-    //   .then(res => res.json())
-    //   .then(result => {
-
-    //     this.setState({ driver: result });
-
-    //   });
-
   }
 
   handleSubmit(event) {
@@ -39,8 +30,7 @@ export default class DriverProfile extends React.Component {
 
   render() {
 
-    const currentVehicle = Object.assign({}, this.state.driver);
-    const { name, phone, email } = currentVehicle;
+    const { name, phone, email } = this.state.driver;
 
     return (
       <div>
