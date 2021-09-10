@@ -34,7 +34,6 @@ class Routing extends React.Component {
     this.setState({ route: routeArr });
     const counter = this.state.counter + 1;
     this.setState({ counter: counter });
-    this.forceUpdate();
 
   }
 

@@ -1,13 +1,13 @@
 import React from 'react';
 // import VehicleProfile from './vehicle-profile';
-// import Routing from './routing';
+import Routing from './routing';
 
 export default function Home(props) {
   return (
     <>
 
     {/* <VehicleProfile /> */}
-    {/* <Routing /> */}
+    <Routing />
 
     </>
   );
