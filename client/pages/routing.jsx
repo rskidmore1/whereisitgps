@@ -51,6 +51,9 @@ class Routing extends React.Component {
   }
 
   sendText() {
+
+    this.makeRouteURL();
+
     const message = `
     Name: Ryan
     Route:
@@ -112,11 +115,30 @@ class Routing extends React.Component {
           </Map >
         </div>
 
-        <div>
-          <button className="save-button blue-text" onClick={this.makeRouteURL} >send route</button>
-        </div>
-        <div>
-          <button className="save-button blue-text" onClick={this.sendText}>send text</button>
+        <div className=' route-alert-div  blue-box rounted-box'>
+          <div className="row center">
+
+            <div className="">
+              <button className="save-button blue-text " onClick={this.sendText} >Send</button>
+
+            </div>
+
+            <div className="">
+              <table className="route-check-boxes">
+                <tbody>
+                  <tr>
+                    <td><input className="check-box" type="checkbox"></input></td>
+                    <td> <label>Text</label></td>
+                  </tr>
+                  <tr>
+                    <td><input className="check-box" type="checkbox"></input></td>
+                    <td> <label>Email</label></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
         </div>
 
       </div>
