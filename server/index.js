@@ -125,17 +125,6 @@ app.post('/api/sendtext', (req, res, next) => {
         { toNumber: userPhone, message: message }
       ];
 
-      // for (const item of messages) {
-      //   client.messages
-      //     .create({
-      //       body: item.message,
-      //       from: '+16193042945',
-      //       to: item.toNumber
-      //     })
-      //     .catch(err => {
-      //       next(err);
-      //     });
-      // }
       Promise.all([
 
         client.messages
