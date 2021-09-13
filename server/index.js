@@ -108,17 +108,40 @@ app.post('/api/driverinfo', (req, res, next) => {
 
 app.post('/api/sendtext', (req, res, next) => {
 
-  const { toNumber, message } = req.body;
+  const sql = `
+      select "phone", "email"
+        from "users"
+        where "userId" = 1
+    `;// -replace userId with global thing
 
-  client.messages
-    .create({
-      body: message,
-      from: '+16193042945',
-      to: toNumber
+  db.query(sql)
+    .then(result => {
+      const user = result.rows;
+
+      const userPhone = user[0].phone;
+      const { toNumber, message } = req.body;
+      const messages = [
+        { toNumber: toNumber, message: message },
+        { toNumber: userPhone, message: message }
+      ];
+
+      for (const item of messages) {
+        client.messages
+          .create({
+            body: item.message,
+            from: '+16193042945',
+            to: item.toNumber
+          })
+          .catch(err => {
+            next(err);
+          });
+
+      }
     })
     .catch(err => {
       next(err);
     });
+
 });
 
 app.listen(process.env.PORT, () => {

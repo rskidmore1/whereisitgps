@@ -6,7 +6,6 @@ class Routing extends React.Component {
   constructor(props) {
     super(props);
     this.onMapClicked = this.onMapClicked.bind(this);
-    this.makeRouteURL = this.makeRouteURL.bind(this);
     this.sendText = this.sendText.bind(this);
 
     this.state = {
@@ -41,39 +40,37 @@ class Routing extends React.Component {
 
   }
 
-  makeRouteURL() {
+  sendText() {
+
     let link = 'https://www.google.com/maps/dir/';
     for (let i = 0; i < this.state.route.length; i++) {
       link = `${link}${this.state.route[i].coords.lat},${this.state.route[i].coords.lng}/`;
     }
-    this.setState({ link: link });
 
-  }
+    this.setState({ link: link }, () => {
 
-  sendText() {
-
-    this.makeRouteURL();
-
-    const message = `
-    Name: Ryan
-    Route:
-    ${this.state.link}
+      const message = `
+        Name: Ryan
+        Route:
+        ${this.state.link}
     `;
+      const text = { toNumber: '+19492664664', message: message };
 
-    const text = { toNumber: '+19492664664', message: message };
-    fetch('/api/sendtext/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+      fetch('/api/sendtext/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
 
-      },
+        },
 
-      body: JSON.stringify(text)
-    })
-      .then(response => response.json())
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        body: JSON.stringify(text)
+      })
+        .then(response => response.json())
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    });
 
   }
 

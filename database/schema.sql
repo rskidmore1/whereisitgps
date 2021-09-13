@@ -63,7 +63,11 @@ CREATE TABLE "drivers" (
 );
 CREATE TABLE "users" (
     "userId" serial ,
-    "username" serial  UNIQUE,
+    "username" TEXT  UNIQUE,
+    "firstname" TEXT,
+    "lastname" TEXT,
+    "phone" TEXT,
+    "email" TEXT,
     "hashedPassword" TEXT ,
     "createdAt" timestamp with time zone ,
     "updatedAt" timestamp with time zone ,
