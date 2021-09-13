@@ -4,6 +4,9 @@ const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const ClientError = require('./client-error');
 const pg = require('pg');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
 
 const app = express();
 
@@ -101,6 +104,21 @@ app.post('/api/driverinfo', (req, res, next) => {
       next(err);
     });
 
+});
+
+app.post('/api/sendtext', (req, res, next) => {
+
+  const { toNumber, message } = req.body;
+
+  client.messages
+    .create({
+      body: message,
+      from: '+16193042945',
+      to: toNumber
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 app.listen(process.env.PORT, () => {

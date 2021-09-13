@@ -2,10 +2,13 @@ import React from 'react';
 import { Map, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
 
 class Routing extends React.Component {
+
   constructor(props) {
     super(props);
     this.onMapClicked = this.onMapClicked.bind(this);
     this.makeRouteURL = this.makeRouteURL.bind(this);
+    this.sendText = this.sendText.bind(this);
+
     this.state = {
       vehicleLocation: {
         lat: 40.854885,
@@ -13,7 +16,8 @@ class Routing extends React.Component {
       },
       route: [],
       counter: 1,
-      vehicle: {}
+      vehicle: {},
+      link: ''
     };
 
     const vId = 2;
@@ -42,6 +46,34 @@ class Routing extends React.Component {
     for (let i = 0; i < this.state.route.length; i++) {
       link = `${link}${this.state.route[i].coords.lat},${this.state.route[i].coords.lng}/`;
     }
+    this.setState({ link: link });
+
+  }
+
+  sendText() {
+
+    this.makeRouteURL();
+
+    const message = `
+    Name: Ryan
+    Route:
+    ${this.state.link}
+    `;
+
+    const text = { toNumber: '+19492664664', message: message };
+    fetch('/api/sendtext/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+
+      },
+
+      body: JSON.stringify(text)
+    })
+      .then(response => response.json())
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
   }
 
@@ -83,10 +115,32 @@ class Routing extends React.Component {
           </Map >
         </div>
 
-        <div>
-          <button className="save-button blue-text" onClick={this.makeRouteURL}>send route</button>
+        <div className=' route-alert-div  blue-box rounted-box'>
+          <div className="row center">
+
+            <div className="">
+              <button className="save-button blue-text " onClick={this.sendText} >Send</button>
+
+            </div>
+
+            <div className="">
+              <table className="route-check-boxes">
+                <tbody>
+                  <tr>
+                    <td><input className="check-box" type="checkbox"></input></td>
+                    <td> <label>Text</label></td>
+                  </tr>
+                  <tr>
+                    <td><input className="check-box" type="checkbox"></input></td>
+                    <td> <label>Email</label></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
         </div>
-              <div></div>
+
       </div>
     );
   }
