@@ -129,7 +129,7 @@ class LiveMap extends React.Component {
               <Marker key={vehicle.vehicleId}
                 position={{ lat: vehicle.coords.lat, lng: vehicle.coords.lng }}
                 icon={{
-                  url: vehicle.stopped ? 'https://upload.wikimedia.org/wikipedia/commons/0/07/Button_Icon_Red.svg' : 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Green_icon.svg',
+                  url: vehicle.stopped ? './images/Button_Icon_Red.svg' : './images/Green_icon.svg',
                   anchor: new window.google.maps.Point(10, 10),
                   scaledSize: new window.google.maps.Size(10, 10)
                 }}
