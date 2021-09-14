@@ -7,10 +7,9 @@ class LiveMap extends React.Component {
     super(props);
 
     this.state = {
-      dailyRoutes: [],
-      maxIncrease: 0,
-      totalVehicles: 0,
-      count: 0,
+      demoRoutes: [],
+      demoRoutesMaxCount: 0,
+      demoCount: 0,
       mapCenter: {
         lat: 25.774,
         lng: -80.190
@@ -29,24 +28,24 @@ class LiveMap extends React.Component {
         }
       }]
     };
-    fetch('/api/dailyroutes')
+
+    fetch('/api/demoroutes')
       .then(res => res.json())
       .then(result => {
 
         let routesArr = [];
-        const dailyRoutesArr = [];
-        this.setState({ totalVehicles: result.rows.length });
-        this.setState({ maxIncrease: result.rows[0].dailyRoute.gpx.trk[0].trkseg[0].trkpt.length });
+        const demoRoutesArr = [];
+        this.setState({ demoRoutesMaxCount: result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length });
         for (let i = 0; i < result.rows.length; i++) {
-          for (let j = 0; j < result.rows[0].dailyRoute.gpx.trk[0].trkseg[0].trkpt.length; j++) {
-            routesArr.push(result.rows[i].dailyRoute.gpx.trk[0].trkseg[0].trkpt[j].ATTR);
+          for (let j = 0; j < result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length; j++) {
+            routesArr.push(result.rows[i].demoRoute.gpx.trk[0].trkseg[0].trkpt[j].ATTR);
 
           }
 
-          dailyRoutesArr.push(routesArr);
+          demoRoutesArr.push(routesArr);
           routesArr = [];
         }
-        this.setState({ dailyRoutes: dailyRoutesArr });
+        this.setState({ demoRoutes: demoRoutesArr });
       })
       .catch(err => {
         console.error(err);
@@ -54,28 +53,23 @@ class LiveMap extends React.Component {
 
   }
 
-  count() {
-    let increase = this.state.count;
+  startVehicleUpdates() {
+    let demoCount = this.state.demoCount;
 
     setInterval(() => {
 
-      increase++;
-      this.setState({ count: increase });
-      const maxIncrease = this.state.maxIncrease;
+      demoCount++;
+      this.setState({ demoCount: demoCount });
+      const demoRoutesMaxCount = this.state.demoRoutesMaxCount;
 
-      const totalVehicles = this.state.vehicles.length;
+      const updatedVehicles = this.state.vehicles.map((vehicle, index) => {
 
-      for (let i = 0; i < totalVehicles; i++) {
-        const newCoords = this.state.vehicles[i];
+        return Object.assign({}, vehicle, { coords: { lat: this.state.demoRoutes[index][demoCount].lat, lng: this.state.demoRoutes[index][demoCount].lon } });
+      });
+      this.setState({ vehicles: updatedVehicles });
 
-        newCoords.coords.lat = this.state.dailyRoutes[i][increase].lat;
-        newCoords.coords.lng = this.state.dailyRoutes[i][increase].lon;
-
-        this.setState(newCoords);
-      }
-
-      if (increase === maxIncrease) {
-        increase = 0;
+      if (demoCount === demoRoutesMaxCount) {
+        this.setState({ demoCount: 0 });
       }
     }, 2000
     );
@@ -83,7 +77,7 @@ class LiveMap extends React.Component {
   }
 
   componentDidMount() {
-    this.count();
+    this.startVehicleUpdates();
   }
 
   render() {
@@ -99,15 +93,15 @@ class LiveMap extends React.Component {
 
         <div className="map-div">
           <Map
+
             google={this.props.google}
                 containerStyle={containerStyle}
             initialCenter={this.state.mapCenter}
             zoom={10} >
 
-            {this.state.vehicles.map(item =>
-
-                  <Marker key={item.vehicleId}
-                  position={{ lat: item.coords.lat, lng: item.coords.lng }}
+            {this.state.vehicles.map(vehicle =>
+                  <Marker key={vehicle.vehicleId}
+                  position={{ lat: vehicle.coords.lat, lng: vehicle.coords.lng }}
                   />
             )}
 

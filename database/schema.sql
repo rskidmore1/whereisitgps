@@ -40,7 +40,7 @@ CREATE TABLE "vehicles" (
     "color" TEXT,
     "plate" integer, --fix this case
     "year" integer ,
-    "dailyRoute" json,
+    "demoRoute" json,
     "speedAlert" integer ,
     "brakeAlert" BOOLEAN ,
     "accelerationAlert" BOOLEAN ,

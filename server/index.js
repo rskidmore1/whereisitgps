@@ -151,10 +151,10 @@ app.post('/api/sendtext', (req, res, next) => {
 
 });
 
-app.get('/api/dailyroutes', (req, res, next) => {
+app.get('/api/demoroutes', (req, res, next) => {
 
   const sql = `
-    select "vehicleId", "dailyRoute" from "vehicles";
+    select "vehicleId", "demoRoute" from "vehicles";
     `;
 
   db.query(sql)
