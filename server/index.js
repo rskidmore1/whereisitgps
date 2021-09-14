@@ -151,6 +151,23 @@ app.post('/api/sendtext', (req, res, next) => {
 
 });
 
+app.get('/api/dailyroutes', (req, res, next) => {
+
+  const sql = `
+    select "vehicleId", "dailyRoute" from "vehicles";
+    `;
+
+  db.query(sql)
+    .then(results => {
+
+      res.json(results);
+
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);
