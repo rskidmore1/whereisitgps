@@ -40,6 +40,7 @@ CREATE TABLE "vehicles" (
     "color" TEXT,
     "plate" integer, --fix this case
     "year" integer ,
+    "demoRoute" json,
     "speedAlert" integer ,
     "brakeAlert" BOOLEAN ,
     "accelerationAlert" BOOLEAN ,
@@ -89,6 +90,6 @@ CREATE TABLE "stops" (
   OIDS=FALSE
 );
 ALTER TABLE "trips" ADD CONSTRAINT "trips_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
--- ALTER TABLE "drivers" ADD CONSTRAINT "drivers_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
-ALTER TABLE "drivers" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
+ALTER TABLE "drivers" ADD CONSTRAINT "drivers_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
+-- ALTER TABLE "drivers" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
 ALTER TABLE "stops" ADD CONSTRAINT "stops_fk0" FOREIGN KEY ("vehicleId") REFERENCES "vehicles"("vehicleId");
