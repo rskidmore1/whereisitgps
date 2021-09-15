@@ -38,13 +38,18 @@ CREATE TABLE "vehicles" (
     "make" TEXT ,
     "model" TEXT ,
     "color" TEXT,
-    "plate" integer, --fix this case
-    "year" integer ,
+    "plate" integer,
+    "year" integer,
+    "topSpeed" integer,
+    "speedingThreshold" integer,
     "demoRoute" json,
-    "speedAlert" integer ,
+    "speedAlert" BOOLEAN ,
     "brakeAlert" BOOLEAN ,
+    "textAlert" BOOLEAN,
+    "emailAlert" BOOLEAN,
     "accelerationAlert" BOOLEAN ,
     "updatedAt" timestamp with time zone ,
+    "demo" BOOLEAN,
     "photo" TEXT ,
     CONSTRAINT "vehicles_pk" PRIMARY KEY ("vehicleId")
 ) WITH (

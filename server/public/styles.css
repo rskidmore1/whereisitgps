@@ -4,6 +4,12 @@
   width: 320px;
 }
 
+.alerts-box {
+  background-color: #e5ecf4;
+  border-radius: 28px;
+  width: 350px;
+}
+
 button {
   cursor: pointer;
 }

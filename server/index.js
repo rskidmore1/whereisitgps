@@ -51,6 +51,36 @@ app.post('/api/vehicleinfo', (req, res, next) => {
 
 });
 
+app.put('/api/vehiclealerts/:vehicleId', (req, res, next) => {
+
+  const { speedAlert, speedingThreshold, brakeAlert, accelerationAlert, textAlert, emailAlert } = req.body;
+  const vehicleId = parseInt(req.params.vehicleId, 10);
+  if (!Number.isInteger(vehicleId) || vehicleId < 1) {
+    throw new ClientError(400, 'vehicleId must be a positive integer');
+
+  }
+
+  const sql = `
+    update "vehicles" set
+      "speedAlert" = $1, "speedingThreshold" = $2,
+      "brakeAlert" = $3, "accelerationAlert" = $4,
+      "textAlert" = $5,  "emailAlert" = $6
+      where "vehicleId" = $7;
+  `;
+
+  const params = [speedAlert, speedingThreshold, brakeAlert, accelerationAlert, textAlert, emailAlert, vehicleId];
+
+  db.query(sql, params)
+    .then(result => {
+      const veh = result.rows;
+      res.json(veh);
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
 app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
   const vehicleId = parseInt(req.params.vehicleId, 10);
   if (!Number.isInteger(vehicleId) || vehicleId < 1) {
