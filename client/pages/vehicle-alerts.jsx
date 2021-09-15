@@ -57,9 +57,9 @@ export default class VehicleAlerts extends React.Component {
           const text = { toNumber: '+19492664664', message: message };
           this.sendText(text);
         }
-        if (alert.emailAlert) {
-          // email alert code goes here. -make function
-        }
+      }
+      if (alert.emailAlert) {
+        // email alert code goes here. -make function
       }
 
     }
@@ -71,8 +71,7 @@ export default class VehicleAlerts extends React.Component {
 
   render() {
 
-    const currentVehicle = Object.assign({}, this.state.vehicle);
-    const { speedingThreshold, speedAlert, brakeAlert, accelerationAlert, textAlert, emailAlert } = currentVehicle;
+    const { speedingThreshold, speedAlert, brakeAlert, accelerationAlert, textAlert, emailAlert } = this.state.vehicle;
     return (
       <div>
         <div className="alerts-box font-regular blue-text ">
