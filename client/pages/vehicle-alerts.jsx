@@ -39,107 +39,58 @@ export default class VehicleAlerts extends React.Component {
 
   render() {
 
-    const currentVehicle = Object.assign({}, this.state.vehicle);
-    const { name, make, model, year, color, plate } = currentVehicle;
+    // const currentVehicle = Object.assign({}, this.state.vehicle);
+    // const { name, make, model, year, color, plate } = currentVehicle;
 
     return (
       <div>
-        <div className=" box-two-thirds font-regular blue-text ">
-          <div className="row vehicle-info-row box-padding">
-
-            <div className="width-50 vehicle-info-col ">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Name:</td>
-                      <td>{name}</td>
-                    </tr>
-                    <tr>
-                      <td>Year:</td>
-                      <td>{year}</td>
-                    </tr>
-                    <tr>
-                      <td>Make:</td>
-                      <td>{make}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-            <div className="width-50 vehicle-info-col ">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Color:</td>
-                      <td>{color}</td>
-                    </tr>
-                    <tr>
-                      <td>Model:</td>
-                      <td>{model}</td>
-                    </tr>
-                    <tr>
-                      <td>Plate:</td>
-                      <td>{plate}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-          </div>
-        </div >
-        <br></br>
-
-        <div className="box-two-thirds vehicle-info-edit font-regular blue-text">
+        <div className="alerts-box font-regular blue-text ">
           <form onSubmit={this.handleSubmit}>
+            <div className="row vehicle-info-row box-padding">
 
-            <div className="row vehicle-info-row box-padding" >
-              <div className="width-50 vehicle-info-col">
+              <div className="50-width alerts-col ">
                   <table>
                     <tbody>
                       <tr>
-                        <td><label>Name:</label></td>
-                        <td><input type="text" defaultValue={name} /></td>
+                      <td><input className="check-box" type="checkbox"></input></td>
+                      <td><label>Speed </label><input type="text"></input><label> mph</label></td>
                       </tr>
                       <tr>
-                        <td><label>Year:</label></td>
-                        <td><input type="number" defaultValue={year} /></td>
+                      <td><input className="check-box" type="checkbox"></input></td>
+                      <td><label>Hard Braking</label></td>
                       </tr>
                       <tr>
-                        <td><label>Make:</label></td>
-                        <td><input type="text" defaultValue={make} /></td>
+                      <td><input className="check-box" type="checkbox"></input></td>
+                      <td><label>Hard Acceleration</label></td>
                       </tr>
+                      <tr></tr>
+                    <tr></tr>
                     </tbody>
                   </table>
+                </div>
 
-              </div>
-
-              <div className="width-50 vehicle-info-col">
-                <table>
-                  <tbody>
+              <div className="50-width alerts-col">
+                  <table>
+                    <tbody>
                     <tr>
-                      <td><label>Color:</label> </td>
-                      <td> <input type="text" defaultValue={color} /></td>
+                      <td><input className="check-box" type="checkbox"></input></td>
+                      <td><label>Text</label></td>
                     </tr>
                     <tr>
-                      <td><label>Model:</label> </td>
-                      <td><input type="text" defaultValue={model} /> </td>
+                      <td><input className="check-box" type="checkbox"></input></td>
+                      <td><label>Email</label></td>
                     </tr>
-                    <tr>
-                      <td><label>Plate:</label> </td>
-                      <td><input type="number" defaultValue={plate} /> </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
 
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div className='align-right'>
+              <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Save</button>
             </div>
 
-          <div className='align-right'>
-              <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Save</button>
-          </div>
-
-          </form>
-        </div>
+         </form>
+        </div >
 
       </div>
     );

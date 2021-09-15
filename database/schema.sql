@@ -45,6 +45,8 @@ CREATE TABLE "vehicles" (
     "demoRoute" json,
     "speedAlert" integer ,
     "brakeAlert" BOOLEAN ,
+    "textAlert" BOOLEAN,
+    "emailAlert" BOOLEAN,
     "accelerationAlert" BOOLEAN ,
     "updatedAt" timestamp with time zone ,
     "demo" BOOLEAN,
