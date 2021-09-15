@@ -11,21 +11,36 @@ class LiveMap extends React.Component {
       demoRoutesMaxCount: 0,
       demoCount: 0,
       mapCenter: {
-        lat: 25.774,
-        lng: -80.190
+        lat: 33.91696347,
+        lng: -117.88405129
       },
       vehicles: [{
         vehicleId: 1,
         coords: {
-          lat: 25.774,
-          lng: -80.190
-        }
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false
       }, {
         vehicleId: 2,
         coords: {
-          lat: 24.774,
-          lng: -80.190
-        }
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false,
+        stoppedTimer: 0
+      },
+      {
+        vehicleId: 3,
+        coords: {
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false,
+        stoppedTimer: 0
       }]
     };
 
@@ -64,7 +79,17 @@ class LiveMap extends React.Component {
 
       const updatedVehicles = this.state.vehicles.map((vehicle, index) => {
 
-        return Object.assign({}, vehicle, { coords: { lat: this.state.demoRoutes[index][demoCount].lat, lng: this.state.demoRoutes[index][demoCount].lon } });
+        let timeStamp = vehicle.movedAt;
+        let stopped = vehicle.stopped;
+
+        if (vehicle.coords.lat !== this.state.demoRoutes[index][demoCount].lat && vehicle.coords.lng !== this.state.demoRoutes[index][demoCount].lon) {
+          stopped = false;
+          timeStamp = Date.now();
+        } else if (timeStamp + 42000 <= Date.now()) {
+          stopped = true;
+        }
+
+        return Object.assign({}, vehicle, { coords: { lat: this.state.demoRoutes[index][demoCount].lat, lng: this.state.demoRoutes[index][demoCount].lon }, movedAt: timeStamp, stopped: stopped });
       });
       this.setState({ vehicles: updatedVehicles });
 
@@ -95,17 +120,22 @@ class LiveMap extends React.Component {
           <Map
 
             google={this.props.google}
-                containerStyle={containerStyle}
+            containerStyle={containerStyle}
             initialCenter={this.state.mapCenter}
             zoom={10} >
 
             {this.state.vehicles.map(vehicle =>
-                  <Marker key={vehicle.vehicleId}
-                  position={{ lat: vehicle.coords.lat, lng: vehicle.coords.lng }}
-                  />
-            )}
 
-          </Map >
+              <Marker key={vehicle.vehicleId}
+                position={{ lat: vehicle.coords.lat, lng: vehicle.coords.lng }}
+                icon={{
+                  url: vehicle.stopped ? './images/Button_Icon_Red.svg' : './images/Green_icon.svg',
+                  anchor: new window.google.maps.Point(10, 10),
+                  scaledSize: new window.google.maps.Size(10, 10)
+                }}
+              />
+            )}
+        </Map >
         </div>
 
       </div>
