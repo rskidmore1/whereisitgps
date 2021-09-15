@@ -43,7 +43,7 @@ CREATE TABLE "vehicles" (
     "topSpeed" integer,
     "speedingThreshold" integer,
     "demoRoute" json,
-    "speedAlert" integer ,
+    "speedAlert" BOOLEAN ,
     "brakeAlert" BOOLEAN ,
     "textAlert" BOOLEAN,
     "emailAlert" BOOLEAN,

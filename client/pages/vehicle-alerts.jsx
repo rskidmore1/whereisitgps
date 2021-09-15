@@ -7,27 +7,38 @@ export default class VehicleAlerts extends React.Component {
     this.state = { vehicle: {}, vehicleId: vId, demoVehicle: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.sendText = this.sendText.bind(this);
+    this.updateAlerts = this.updateAlerts.bind(this);
 
     fetch(`/api/vehicleinfo/${vId}`)
       .then(res => res.json())
       .then(result => {
-
         this.setState({ vehicle: result });
-
       });
 
   }
 
   sendText(text) {
-    // console.log(text);
     fetch('/api/sendtext/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-
       },
 
       body: JSON.stringify(text)
+    })
+      .then(response => response.json())
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  updateAlerts(alerts) {
+    fetch(`/api/vehiclealerts/${this.state.vehicleId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(alerts)
     })
       .then(response => response.json())
       .catch(error => {
@@ -39,16 +50,12 @@ export default class VehicleAlerts extends React.Component {
 
     const alerts = { speedAlert: event.target[0].checked, speedingThreshold: event.target[1].value, brakeAlert: event.target[2].checked, accelerationAlert: event.target[3].checked, textAlert: event.target[4].checked, emailAlert: event.target[5].checked };
     this.setState({ vehicle: alerts });
-    // //console.log(event.target[0].checked);
-    // console.log(this.state.vehicle.demo);
-    // console.log(alerts.textAlert);
     if (this.state.vehicle.demo) {
       if (alerts.textAlert) {
         if (this.state.vehicle.topSpeed > alerts.speedingThreshold) {
           const message = `${this.state.vehicle.name} has exceeded speeding threshold. Speed: ${alerts.topSpeed}`;
           const text = { toNumber: '+19492664664', message: message };
           this.sendText(text);
-
         }
         if (alert.emailAlert) {
           // email alert code goes here. -make function
@@ -57,6 +64,8 @@ export default class VehicleAlerts extends React.Component {
 
     }
 
+    this.updateAlerts(alerts);
+
     event.preventDefault();
   }
 
@@ -64,7 +73,6 @@ export default class VehicleAlerts extends React.Component {
 
     const currentVehicle = Object.assign({}, this.state.vehicle);
     const { speedingThreshold, speedAlert, brakeAlert, accelerationAlert, textAlert, emailAlert } = currentVehicle;
-    // console.log(currentVehicle);
     return (
       <div>
         <div className="alerts-box font-regular blue-text ">
