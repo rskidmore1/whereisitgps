@@ -26,6 +26,12 @@ button {
   width: 50%;
 }
 
+.nav-ul {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  text-align: left;
+}
+
 input {
   width: 90px;
 }
@@ -36,6 +42,20 @@ input {
 
 .font-regular {
   font-family: 'Nunito Sans', sans-serif;
+}
+
+.font-heavy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+}
+
+.nav-a {
+  text-decoration: none;
+  color: #0d3b66;
+}
+
+.live-page {
+  color: white;
 }
 
 .blue-text {
@@ -64,6 +84,26 @@ td {
 
 .box-padding {
   padding: 0.5rem;
+}
+
+.one-third {
+  width: 19%;
+}
+
+.nav-box {
+  width: 8rem;
+  height: 12rem;
+
+  /* width: 80%;
+  height: 50%; */
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.purple {
+  background-color: #c3bef7;
 }
 
 .rounded-button {
@@ -121,4 +161,5 @@ input[type="file"] {
 .photo-label {
   width: 80px;
   margin-bottom: 1rem;
+}
 }
