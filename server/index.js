@@ -126,7 +126,7 @@ app.get('/api/driverinfo/:driverId', (req, res, next) => {
       const [driver] = results.rows;
       if (!driver) {
 
-        throw new ClientError(404, `cannot find vehicleId ${driverId}`); // This is returning html to instead json message to httpie
+        throw new ClientError(404, `cannot find driverId ${driverId}`); // This is returning html to instead json message to httpie
       } else {
 
         res.json(driver);
