@@ -4,7 +4,7 @@ import React from 'react';
 // import LiveMap from './live-map';
 // import VehicleAlerts from './vehicle-alerts';
 // import VehicleProfile from './vehicle-profile';
-import NavBar from './nav-bar';
+// import NavBar from './nav-bar';
 
 export default function Home(props) {
   return (
@@ -13,7 +13,10 @@ export default function Home(props) {
       {/* <LiveMap /> */}
       {/* <VehicleAlerts /> */}
       {/* <VehicleProfile /> */}
-      <NavBar />
+      {/* <NavBar /> */}
+      <div>
+        <p>hello from home page</p>
+      </div>
 
     </>
   );
