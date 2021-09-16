@@ -113,3 +113,12 @@ td {
 .photo-button-div {
   padding: 0.5rem;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.photo-label {
+  width: 80px;
+  margin-bottom: 1rem;
+}

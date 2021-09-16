@@ -41,15 +41,14 @@ export default class VehicleProfile extends React.Component {
   handlePhoto(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    // console.log(formData);
 
-    fetch('/api/uploads', {
-      method: 'POST',
+    fetch(`/api/vehiclephoto/${this.state.vehicleId}`, {
+      method: 'PUT',
       body: formData
     })
       .then(response => response.json())
       .then(result => {
-        // console.log('Success:', result);
+
         event.target.reset();
       })
       .catch(error => {
@@ -118,15 +117,15 @@ export default class VehicleProfile extends React.Component {
                     <tbody>
                       <tr>
                         <td><label>Name:</label></td>
-                        <td><input type="text" defaultValue={name} /></td>
+                        <td><input className="vehicle-input" type="text" defaultValue={name} /></td>
                       </tr>
                       <tr>
                         <td><label>Year:</label></td>
-                        <td><input type="number" defaultValue={year} /></td>
+                      <td><input className="vehicle-input" type="number" defaultValue={year} /></td>
                       </tr>
                       <tr>
                         <td><label>Make:</label></td>
-                        <td><input type="text" defaultValue={make} /></td>
+                      <td><input className="vehicle-input" type="text" defaultValue={make} /></td>
                       </tr>
                     </tbody>
                   </table>
@@ -138,15 +137,15 @@ export default class VehicleProfile extends React.Component {
                   <tbody>
                     <tr>
                       <td><label>Color:</label> </td>
-                      <td> <input type="text" defaultValue={color} /></td>
+                      <td> <input className="vehicle-input" type="text" defaultValue={color} /></td>
                     </tr>
                     <tr>
                       <td><label>Model:</label> </td>
-                      <td><input type="text" defaultValue={model} /> </td>
+                      <td><input className="vehicle-input" type="text" defaultValue={model} /> </td>
                     </tr>
                     <tr>
                       <td><label>Plate:</label> </td>
-                      <td><input type="number" defaultValue={plate} /> </td>
+                      <td><input className="vehicle-input" type="number" defaultValue={plate} /> </td>
                     </tr>
                   </tbody>
                 </table>
@@ -163,19 +162,16 @@ export default class VehicleProfile extends React.Component {
         <div>
           <div className="vehicle-photo-div">
             <div className=" photo-margin-div">
+              <form onSubmit={this.handlePhoto}>
 
-              {/* <div className="column-full photo-button-div " >
-                <button className="save-button rounded-button font-regular blue-text center "
-                type="submit" value="Submit">Upload</button>
+                <div className="column-full photo-button-div">
+                  <label className="photo-label save-button rounded-button font-regular blue-text center"><input required type="file" name="image" />Upload</label>
 
-              </div> */}
-              <div className="column-full photo-button-div">
-                <form onSubmit={this.handlePhoto}>
-                  <input required type="file" name="image" />
                   <button className="save-button rounded-button font-regular blue-text center "
-                    type="submit" value="Submit">Upload</button>
-                  </form>
-              </div>
+                      type="submit" >Save</button>
+                </div>
+              </form>
+
             </div>
 
           </div>

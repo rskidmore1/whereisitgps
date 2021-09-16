@@ -7,6 +7,7 @@ const pg = require('pg');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
+const uploadsMiddleware = require('./uploads-middleware');
 
 const app = express();
 
@@ -196,6 +197,35 @@ app.get('/api/demoroutes', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+
+app.put('/api/vehiclephoto/:vehicleId', uploadsMiddleware, (req, res, next) => {
+
+  const vehicleId = parseInt(req.params.vehicleId, 10);
+  if (!Number.isInteger(vehicleId) || vehicleId < 1) {
+    throw new ClientError(400, 'vehicleId must be a positive integer');
+
+  }
+  // console.log(req);
+  const urlUpload = '/images/' + req.file.filename;
+
+  const sql = `
+    update "vehicles" set
+      "photo" = $1
+      where "vehicleId" = $2;
+  `;
+
+  const params = [urlUpload, vehicleId];
+
+  db.query(sql, params)
+    .then(result => {
+      const veh = result.rows;
+      res.json(veh);
+    })
+    .catch(err => {
+      next(err);
+    });
+
 });
 
 app.listen(process.env.PORT, () => {
