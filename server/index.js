@@ -110,6 +110,34 @@ app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
     });
 });
 
+app.get('/api/driverinfo/:driverId', (req, res, next) => {
+  const driverId = parseInt(req.params.driverId, 10);
+  if (!Number.isInteger(driverId) || driverId < 1) {
+    throw new ClientError(400, 'driverId must be a positive integer');
+  }
+  const params = [driverId];
+
+  const sql = `
+    select * from "drivers"
+    where "driverId" = $1
+    `;
+  db.query(sql, params)
+    .then(results => {
+      const [driver] = results.rows;
+      if (!driver) {
+
+        throw new ClientError(404, `cannot find vehicleId ${driverId}`); // This is returning html to instead json message to httpie
+      } else {
+
+        res.json(driver);
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
 app.post('/api/driverinfo', (req, res, next) => {
 
   const { name, phone, email } = req.body;
