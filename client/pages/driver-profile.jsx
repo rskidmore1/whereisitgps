@@ -7,6 +7,14 @@ export default class DriverProfile extends React.Component {
     this.state = { driver: {}, driverId: dId };
     this.handleSubmit = this.handleSubmit.bind(this);
 
+    fetch(`/api/driverinfo/${dId}`)
+      .then(res => res.json())
+      .then(result => {
+
+        this.setState({ driver: result });
+
+      });
+
   }
 
   handleSubmit(event) {
@@ -69,7 +77,36 @@ export default class DriverProfile extends React.Component {
           </form>
         </div>
         </div>
+        <br></br>
+        <div className=" box-two-thirds font-regular blue-text ">
 
+          <div className="box-two-thirds driver-info-edit font-regular blue-text">
+
+              <div className="row driver-info-row box-padding" >
+                <div className="width-50 vehicle-info-col">
+                  <table>
+                    <tbody className="driver-p">
+                      <tr>
+                        <td ><p className="driver-p">Name:</p></td>
+                        <td><p className="driver-p">{name}</p></td>
+                      </tr>
+                      <tr>
+                        <td><p className="driver-p">Phone:</p></td>
+                        <td><p className="driver-p">{phone}</p></td>
+                      </tr>
+                      <tr>
+                        <td><p className="driver-p">Email:</p></td>
+                        <td><p className="driver-p">{email}</p></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+
+          </div>
+        </div>
       </div>
     );
   }
