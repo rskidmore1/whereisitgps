@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './pages/home';
 import NavBar from './pages/nav-bar';
 import LiveMap from './pages/live-map';
+import VehicleList from './pages/vehicle-list';
 import { parseRoute } from './lib';
 
 export default class App extends React.Component {
@@ -24,23 +24,30 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Home />;
-    }
-    if (route.path === 'livemap') {
-      // const productId = route.params.get('productId');
-      // return <ProductDetails productId={productId} />;
       return <LiveMap />;
     }
-    // return <NotFound />;
+
+    if (route.path === 'vehicle-list') {
+
+      return <VehicleList />;
+    }
   }
 
   render() {
 
-    // return <Home />;
     return (
       <>
-      <NavBar />
-      { this.renderPage() }
+        <div className="row">
+          <div className="one-third border">
+           <NavBar />
+          </div>
+          <div className="two-third border ">
+                { this.renderPage() }
+          </div>
+
+          <div className="one-third ">
+          </div>
+       </div>
       </>
     );
   }
