@@ -50,6 +50,9 @@ td {
   background-color: #bad2ed;
   border: 0;
   padding: 0.3rem 1rem;
+}
+
+.save-button-margin {
   margin-top: 1.5rem;
   margin-left: 0.5rem;
 }
@@ -83,6 +86,30 @@ td {
 }
 
 .center {
+  display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.center-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.vehicle-photo-div {
+  background-color: lightgray;
+  width: 10rem;
+  height: 10rem;
+}
+
+.photo-margin-div {
+  padding-top: 20%;
+}
+
+.photo-button-div {
+  padding: 0.5rem;
 }

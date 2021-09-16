@@ -6,6 +6,7 @@ export default class VehicleProfile extends React.Component {
     const vId = 2;// Replace this when creating vehicle list feature
     this.state = { vehicle: {}, vehicleId: vId };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePhoto = this.handlePhoto.bind(this);
 
     fetch(`/api/vehicleinfo/${vId}`)
       .then(res => res.json())
@@ -35,6 +36,25 @@ export default class VehicleProfile extends React.Component {
         console.error('Error:', error);
       });
     event.preventDefault();
+  }
+
+  handlePhoto(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    // console.log(formData);
+
+    fetch('/api/uploads', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(result => {
+        // console.log('Success:', result);
+        event.target.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
   render() {
@@ -139,6 +159,26 @@ export default class VehicleProfile extends React.Component {
           </div>
 
           </form>
+        </div>
+        <div>
+          <div className="vehicle-photo-div">
+            <div className=" photo-margin-div">
+
+              {/* <div className="column-full photo-button-div " >
+                <button className="save-button rounded-button font-regular blue-text center "
+                type="submit" value="Submit">Upload</button>
+
+              </div> */}
+              <div className="column-full photo-button-div">
+                <form onSubmit={this.handlePhoto}>
+                  <input required type="file" name="image" />
+                  <button className="save-button rounded-button font-regular blue-text center "
+                    type="submit" value="Submit">Upload</button>
+                  </form>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
