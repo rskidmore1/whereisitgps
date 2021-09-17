@@ -145,8 +145,8 @@ td {
 
 .driver-p {
   margin: 0.3rem 0;
-
 }
+
 .center-vertical {
   position: absolute;
   top: 0;
@@ -187,4 +187,17 @@ input[type="file"] {
 
 .driver-info-edit {
   margin-top: 1rem;
+}
+
+.list-map-div {
+  height: 400px;
+  width: 400px;
+}
+
+.list-margin {
+  margin-top: 1rem;
+}
+
+.list-padding {
+  padding: 0.5rem;
 }

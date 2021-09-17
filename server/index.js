@@ -82,6 +82,27 @@ app.put('/api/vehiclealerts/:vehicleId', (req, res, next) => {
 
 });
 
+app.get('/api/vehicleslist', (req, res, next) => {
+  const sql = `
+    select "name", "make", "model", "currentLocation", "vehicleId" from "vehicles";
+    `;
+
+  db.query(sql)
+    .then(results => {
+      const vehicles = results.rows;
+      if (!vehicles) {
+
+        throw new ClientError(404, 'cannot find vehicles'); // This is returning html to instead json message to httpie
+      } else {
+
+        res.json(vehicles);
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
   const vehicleId = parseInt(req.params.vehicleId, 10);
   if (!Number.isInteger(vehicleId) || vehicleId < 1) {

@@ -42,6 +42,7 @@ CREATE TABLE "vehicles" (
     "year" integer,
     "topSpeed" integer,
     "speedingThreshold" integer,
+    "currentLocation" json,
     "demoRoute" json,
     "speedAlert" BOOLEAN ,
     "brakeAlert" BOOLEAN ,

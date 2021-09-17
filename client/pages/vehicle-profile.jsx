@@ -11,7 +11,7 @@ export default class VehicleProfile extends React.Component {
     const vId = 2;// Replace this when creating vehicle list feature
     this.state = { vehicle: {}, vehicleId: vId, driver: {} };
 
-    fetch(`/api/vehicleinfo/${vId}`)
+    fetch(`/api/vehicleinfo/${this.props.vehicleId}`)
       .then(res => res.json())
       .then(result => {
 
