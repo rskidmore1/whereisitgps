@@ -5,6 +5,7 @@ import VehicleList from './pages/vehicle-list';
 import { parseRoute } from './lib';
 import Routing from './pages/routing';
 import VehicleAlerts from './pages/vehicle-alerts';
+import VehicleProfile from './pages/vehicle-profile';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,10 @@ export default class App extends React.Component {
     if (route.path === 'vehicle-list/alerts') {
 
       return <VehicleAlerts />;
+    }
+    if (route.path === 'vehicleprofile') {
+      const vehicleId = route.params.get('vehicleId');
+      return <VehicleProfile vehicleId={vehicleId} />;
     }
   }
 
