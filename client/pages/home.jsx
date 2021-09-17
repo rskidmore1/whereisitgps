@@ -12,6 +12,10 @@ export default function Home(props) {
       {/* <LiveMap /> */}
       {/* <VehicleAlerts /> */}
 
+      {/* <VehicleProfile /> */}
+      {/* <NavBar /> */}
+
+
 
     </>
   );

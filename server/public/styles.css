@@ -26,6 +26,12 @@ button {
   width: 50%;
 }
 
+.nav-ul {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  text-align: left;
+}
+
 input {
   width: 90px;
 }
@@ -36,6 +42,23 @@ input {
 
 .font-regular {
   font-family: 'Nunito Sans', sans-serif;
+}
+
+.font-heavy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+}
+
+.nav-a {
+  text-decoration: none;
+}
+
+.nav-color {
+  color: #0d3b66;
+}
+
+.live-page {
+  color: white;
 }
 
 .blue-text {
@@ -64,6 +87,35 @@ td {
 
 .box-padding {
   padding: 0.5rem;
+}
+
+.vehicle-info {
+  width: 80%;
+}
+
+.vehicle-info-edit {
+  width: 80%;
+}
+
+.one-third {
+  width: 19%;
+}
+
+.two-third {
+  width: 60%;
+}
+
+.nav-box {
+  width: 8rem;
+  height: 12rem;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.purple {
+  background-color: #c3bef7;
 }
 
 .rounded-button {
@@ -125,4 +177,14 @@ input[type="file"] {
 .photo-label {
   width: 80px;
   margin-bottom: 1rem;
+}
+
+.route-alert-box {
+  width: 15rem;
+  padding: 0.5px;
+  margin-top: 1rem;
+}
+
+.driver-info-edit {
+  margin-top: 1rem;
 }
