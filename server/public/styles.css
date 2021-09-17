@@ -51,6 +51,9 @@ input {
 
 .nav-a {
   text-decoration: none;
+}
+
+.nav-color {
   color: #0d3b66;
 }
 
@@ -86,16 +89,25 @@ td {
   padding: 0.5rem;
 }
 
+.vehicle-info {
+  width: 80%;
+}
+
+.vehicle-info-edit {
+  width: 80%;
+}
+
 .one-third {
   width: 19%;
+}
+
+.two-third {
+  width: 60%;
 }
 
 .nav-box {
   width: 8rem;
   height: 12rem;
-
-  /* width: 80%;
-  height: 50%; */
 }
 
 .nav-item {
@@ -162,4 +174,13 @@ input[type="file"] {
   width: 80px;
   margin-bottom: 1rem;
 }
+
+.route-alert-box {
+  width: 15rem;
+  padding: 0.5px;
+  margin-top: 1rem;
+}
+
+.driver-info-edit {
+  margin-top: 1rem;
 }

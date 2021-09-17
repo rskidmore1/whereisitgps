@@ -3,6 +3,8 @@ import NavBar from './pages/nav-bar';
 import LiveMap from './pages/live-map';
 import VehicleList from './pages/vehicle-list';
 import { parseRoute } from './lib';
+import Routing from './pages/routing';
+import VehicleAlerts from './pages/vehicle-alerts';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -31,6 +33,14 @@ export default class App extends React.Component {
 
       return <VehicleList />;
     }
+    if (route.path === 'vehicle-list/routing') {
+
+      return <Routing />;
+    }
+    if (route.path === 'vehicle-list/alerts') {
+
+      return <VehicleAlerts />;
+    }
   }
 
   render() {
@@ -41,12 +51,9 @@ export default class App extends React.Component {
           <div className="one-third border">
            <NavBar />
           </div>
-          <div className="two-third border ">
-                { this.renderPage() }
-          </div>
 
-          <div className="one-third ">
-          </div>
+                { this.renderPage() }
+
        </div>
       </>
     );

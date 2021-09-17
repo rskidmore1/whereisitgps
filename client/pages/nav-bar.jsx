@@ -23,10 +23,10 @@ export default class NavBar extends React.Component {
             <nav>
               <ul className="nav-ul font-heavy">
                 <li className="nav-item">
-                <a id="livemap" className={this.state.openIndex === 'livemap' ? 'nav-a live-page' : 'nav-a'} href="#" onClick={this.handleClick}>Live Map</a>
+                <a id="livemap" className={this.state.openIndex === 'livemap' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#" onClick={this.handleClick}>Live Map</a>
                 </li >
                 <li className="nav-item">
-                <a id="vehicle-list" className={this.state.openIndex === 'vehicle-list' ? 'nav-a live-page' : 'nav-a'} href="#vehicle-list" onClick={this.handleClick}>Vehicles</a>
+                <a id="vehicle-list" className={this.state.openIndex === 'vehicle-list' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#vehicle-list" onClick={this.handleClick}>Vehicles</a>
                 </li>
               </ul>
 
