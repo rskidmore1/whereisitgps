@@ -143,6 +143,10 @@ td {
   margin-right: auto;
 }
 
+.driver-p {
+  margin: 0.3rem 0;
+
+}
 .center-vertical {
   position: absolute;
   top: 0;
