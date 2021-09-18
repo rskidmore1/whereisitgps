@@ -164,6 +164,7 @@ td {
 
 .photo-margin-div {
   padding-top: 20%;
+  position: relative;
 }
 
 .photo-button-div {
@@ -200,4 +201,21 @@ input[type="file"] {
 
 .list-padding {
   padding: 0.5rem;
+}
+
+img {
+  width: 100%;
+  height: inherit;
+}
+
+.vehicle-photo {
+  object-fit: scale-down;
+}
+
+.photo-form {
+  position: absolute;
+  top: 25%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
