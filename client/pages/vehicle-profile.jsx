@@ -8,10 +8,14 @@ import AlertButtonBox from './components/alert-button-box';
 export default class VehicleProfile extends React.Component {
   constructor(props) {
     super(props);
-    const vId = 2;// Replace this when creating vehicle list feature
-    this.state = { vehicle: {}, vehicleId: vId, driver: {} };
+    this.state = {
+      vehicle: {},
+      vehicleId: this.props.vehicleId,
+      driver: {}
 
-    fetch(`/api/vehicleinfo/${this.props.vehicleId}`)
+    };
+
+    fetch(`/api/vehicleinfo/${this.state.vehicleId}`)
       .then(res => res.json())
       .then(result => {
 
@@ -33,11 +37,10 @@ export default class VehicleProfile extends React.Component {
         <AlertButtonBox />
       </div>
       <div className="one-third ">
-        <div className="center">
-          <PhotoUpload />
-          <DriverInfoEdit />
+        <PhotoUpload vehicleId={currentVehicle.vehicleId} photo={currentVehicle.photo} />
+        <DriverInfoEdit />
         </div>
-      </div>
+
       </React.Fragment>
     );
   }
