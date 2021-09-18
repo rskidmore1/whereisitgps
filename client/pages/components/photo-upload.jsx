@@ -6,7 +6,8 @@ export default class PhotoUpload extends React.Component {
     this.handlePhoto = this.handlePhoto.bind(this);
     this.showUpload = this.showUpload.bind(this);
     this.state = {
-      uploadPhoto: false
+      uploadPhoto: false,
+      photoUrl: this.props.photo
     };
   }
 
@@ -19,7 +20,7 @@ export default class PhotoUpload extends React.Component {
   }
 
   handlePhoto(event) {
-    event.preventDefault();
+
     const formData = new FormData(event.target);
     this.setState({ uploadPhoto: false });
 
