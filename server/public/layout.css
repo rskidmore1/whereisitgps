@@ -18,9 +18,19 @@
   width: 100%;
 }
 
+@media screen and (max-width: 767px) {
+  .nav-box {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
+  }
+
+  .nav-mobile {
+    display: none !important;
   }
 
   .column-full,

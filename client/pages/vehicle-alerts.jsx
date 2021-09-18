@@ -73,8 +73,8 @@ export default class VehicleAlerts extends React.Component {
 
     const { speedingThreshold, speedAlert, brakeAlert, accelerationAlert, textAlert, emailAlert } = this.state.vehicle;
     return (
-      <div>
-        <div className="alerts-box font-regular blue-text ">
+      <div className="two-third">
+        <div className="alerts-box font-regular blue-text box-padding rounted-box ">
           <form onSubmit={this.handleSubmit}>
             <div className="row vehicle-info-row box-padding">
 

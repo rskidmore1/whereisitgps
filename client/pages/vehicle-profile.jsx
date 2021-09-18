@@ -3,7 +3,6 @@ import VehicleInfoEdit from './components/vehicle-info-edit';
 import PhotoUpload from './components/photo-upload';
 import DriverInfoEdit from './components/driver-info-edit';
 import AlertButtonBox from './components/alert-button-box';
-
 export default class VehicleProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +26,7 @@ export default class VehicleProfile extends React.Component {
   render() {
 
     const currentVehicle = Object.assign({}, this.state.vehicle);
-    // console.log(currentVehicle);
+
     return (
       <React.Fragment>
       <div className="two-third  ">

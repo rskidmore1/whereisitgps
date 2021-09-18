@@ -8,6 +8,7 @@ export default class NavBar extends React.Component {
 
     };
     this.handleClick = this.handleClick.bind(this);
+
   }
 
   handleClick(event) {
@@ -33,7 +34,58 @@ export default class NavBar extends React.Component {
             </nav>
           </div>
 
+        <div className="nav-mobile">
+
+          <Drawer />
+
+        </div>
+
       </div>
     );
   }
+}
+
+export class Drawer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    if (this.state.isOpen) {
+      this.setState({ isOpen: false });
+    } else {
+      this.setState({ isOpen: true });
+    }
+  }
+
+  render() {
+
+    return (
+
+      <React.Fragment>
+
+        <div className="">
+
+          <i className="fas fa-bars" onClick={this.toggle}></i>
+
+        </div>
+        <div className={this.state.isOpen ? 'nav-div' : 'nav-div hidden'}>
+          <h2 onClick={this.toggle}>Nav</h2>
+          <div>
+
+            <ul>
+              <li><a onClick={this.toggle} href="#">Live Map</a></li>
+              <li><a onClick={this.toggle} href="#vehicle-list">Vehicles</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </React.Fragment>
+
+    );
+
+  }
+
 }

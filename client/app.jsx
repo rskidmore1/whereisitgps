@@ -6,12 +6,14 @@ import { parseRoute } from './lib';
 import Routing from './pages/routing';
 import VehicleAlerts from './pages/vehicle-alerts';
 import VehicleProfile from './pages/vehicle-profile';
+import MobileBar from './pages/components/mobile-bar';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: parseRoute(window.location.hash)
+      route: parseRoute(window.location.hash),
+      mobileTitle: ''
     };
   }
 
@@ -27,39 +29,59 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
+      // this.setState({ mobileTitle: 'Live Map' });
+
       return <LiveMap />;
     }
 
     if (route.path === 'vehicle-list') {
-
+      // this.setState({ mobileTitle: 'Vehicles' });
       return <VehicleList />;
     }
     if (route.path === 'vehicleprofile/routing') {
       const vehicleId = route.params.get('vehicleId');
+      // this.setState({ mobileTitle: 'Routing' });
       return <Routing vehicleId={vehicleId}/>;
     }
     if (route.path === 'vehicleprofile/alerts') {
       const vehicleId = route.params.get('vehicleId');
+      // this.setState({ mobileTitle: 'Alerts' });
       return <VehicleAlerts vehicleId={vehicleId}/>;
     }
     if (route.path === 'vehicleprofile') {
       const vehicleId = route.params.get('vehicleId');
+      // this.setState({ mobileTitle: 'Vehicle' });
       return <VehicleProfile vehicleId={vehicleId} />;
     }
   }
 
   render() {
+    let title = '';
+    if (this.state.route.path === '') {
+      title = 'Live Map';
+    } else if (this.state.route.path === 'vehicleprofile/routing') {
+      title = 'Routing';
+    } else if (this.state.route.path === 'vehicleprofile/alerts') {
+      title = 'Alerts';
+    } else if (this.state.route.path === 'vehicle-list') {
+      title = 'Vehicles';
+    } else if (this.state.route.path === 'vehicleprofile') {
+      title = 'Vehicle';
+    }
 
     return (
       <>
-        <div className="row">
-          <div className="one-third border">
-           <NavBar />
-          </div>
-
-                { this.renderPage() }
-
-       </div>
+      <div className="container">
+        <div className="center">
+          <MobileBar title={title} />
+        </div>
+          <div className="row">
+            <div className="one-third border">
+              <NavBar />
+            </div>
+            { this.renderPage() }
+        </div>
+      </div>
       </>
     );
   }

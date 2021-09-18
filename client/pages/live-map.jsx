@@ -114,7 +114,7 @@ class LiveMap extends React.Component {
     };
 
     return (
-      <div>
+      <div className="two-third">
 
         <div className="map-div">
           <Map

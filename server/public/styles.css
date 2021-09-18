@@ -1,12 +1,10 @@
 .box-two-thirds {
   background-color: #e5ecf4;
-  border-radius: 28px;
   width: 320px;
 }
 
 .alerts-box {
   background-color: #e5ecf4;
-  border-radius: 28px;
   width: 350px;
 }
 
@@ -19,7 +17,7 @@ button {
 }
 
 .rounted-box {
-  border-radius: 28px;
+  border-radius: 0.25rem;
 }
 
 .width-50 {
@@ -33,7 +31,7 @@ button {
 }
 
 input {
-  width: 90px;
+  width: 60px;
 }
 
 .align-right {
@@ -80,6 +78,11 @@ td {
   margin-left: 0.5rem;
 }
 
+.alert-button-margin {
+  margin-top: 1.5rem;
+  margin-left: 0;
+}
+
 .route-check-boxes {
   margin-top: 1rem;
   margin-left: 0.7rem;
@@ -98,11 +101,14 @@ td {
 }
 
 .one-third {
-  width: 19%;
+  width: 22%;
+  border: 1px black solid;
 }
 
 .two-third {
-  width: 60%;
+  width: 56%;
+  padding: 1rem;
+  border: 1px black solid;
 }
 
 .nav-box {
@@ -133,8 +139,7 @@ td {
 }
 
 .route-alert-div {
-  width: 10rem;
-  height: 5rem;
+  width: 15rem;
 }
 
 .center {
@@ -181,7 +186,7 @@ input[type="file"] {
 }
 
 .route-alert-box {
-  width: 15rem;
+  width: 12rem;
   padding: 0.5px;
   margin-top: 1rem;
 }
@@ -191,11 +196,20 @@ input[type="file"] {
 }
 
 .list-map-div {
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 110%;
+  margin-top: 10rem;
 }
 
 .list-margin {
+  margin-top: 1rem;
+}
+
+.margin-top-1rem {
+  margin-top: 1rem;
+}
+
+.driver-info-margin {
   margin-top: 1rem;
 }
 
@@ -225,3 +239,56 @@ img {
   height: 100px;
   border: 1px black solid;
 }
+
+
+/* Mobile styling */
+
+.mobile-title {
+  text-align: center;
+}
+
+i {
+  position: absolute;
+  padding: 0.5rem;
+}
+
+.nav-div {
+  width: 100px;
+  background-color: white;
+  border: 0;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+}
+
+p {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .map-div {
+    width: 200px;
+    height: 200px;
+    padding: 0.5rem;
+  }
+
+  .one-third {
+    width: 100%;
+  }
+
+  .two-third {
+    width: 100%;
+  }
+
+  .vehicle-list-item {
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vehicle-info-desktop {
+    display: none;
+  }
+}
+
+/* nav end  */
