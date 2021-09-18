@@ -27,7 +27,7 @@ class MapList extends React.Component {
                 google={this.props.google}
                 containerStyle={containerStyle}
                 initialCenter={this.state.mapCenter}
-                zoom={10} >
+                zoom={9} >
 
                 <Marker
                  position={{ lat: this.props.coords.lat, lng: this.props.coords.lng }}

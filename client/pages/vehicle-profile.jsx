@@ -27,13 +27,14 @@ export default class VehicleProfile extends React.Component {
   render() {
 
     const currentVehicle = Object.assign({}, this.state.vehicle);
-
+    // console.log(currentVehicle);
     return (
       <React.Fragment>
       <div className="two-third  ">
 
         <VehicleInfoEdit currentVehicle={currentVehicle} />
-        <AlertButtonBox />
+
+        <AlertButtonBox vehicleId={currentVehicle.vehicleId} />
       </div>
       <div className="one-third ">
         <PhotoUpload vehicleId={currentVehicle.vehicleId} photo={currentVehicle.photo} />

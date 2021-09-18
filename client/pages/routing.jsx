@@ -19,11 +19,11 @@ class Routing extends React.Component {
       link: ''
     };
 
-    const vId = 2;
-    fetch(`/api/vehicleinfo/${vId}`)
+    fetch(`/api/vehicleinfo/${this.props.vehicleId}`)
       .then(res => res.json())
       .then(result => {
         this.setState({ vehicle: result });
+
       });
 
   }
