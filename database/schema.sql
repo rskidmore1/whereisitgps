@@ -33,6 +33,7 @@ CREATE TABLE "trips" (
 );
 CREATE TABLE "vehicles" (
     "vehicleId" serial ,
+    "driverId" integer,
     "createdAt" timestamp with time zone ,
     "name" TEXT ,
     "make" TEXT ,

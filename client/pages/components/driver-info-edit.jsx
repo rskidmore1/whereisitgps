@@ -1,63 +1,82 @@
 import React from 'react';
 
-function handleSubmit(event) {
-  const driver = { name: event.target[0].value, phone: event.target[1].value, email: event.target[2].value };
-  fetch('/api/driverinfo/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+export default class DriverInfoEdit extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { driver: {}, driverId: 1 };
+    this.handleSubmit = this.handleSubmit.bind(this);
 
-    },
+    fetch(`/api/driverinfo/${this.state.driverId}`)
+      .then(res => res.json())
+      .then(result => {
 
-    body: JSON.stringify(driver)
-  })
-    .then(response => response.json())
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  event.preventDefault();
-}
+        this.setState({ driver: result });
 
-export default function DriverInfoEdit() {
+      });
 
-  return (
+  }
 
-    <div className=" blue-box font-regular blue-text ">
+  handleSubmit(event) {
 
-      <div className=" driver-info-edit font-regular blue-text">
-        <form onSubmit={handleSubmit}>
+    const driver = { name: event.target[0].value, phone: event.target[1].value, email: event.target[2].value };
+    fetch('/api/driverinfo/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
 
-          <div className="row driver-info-row box-padding" >
-            <div className="width-50 vehicle-info-col">
-              <table>
-                <tbody>
-                  <tr>
-                    <td><label>Name:</label></td>
-                    <td><input type="text" /></td>
-                  </tr>
-                  <tr>
-                    <td><label>Phone:</label></td>
-                    <td><input type="text" /></td>
-                  </tr>
-                  <tr>
-                    <td><label>Email:</label></td>
-                    <td><input type="text" /></td>
-                  </tr>
-                </tbody>
-              </table>
+      },
+
+      body: JSON.stringify(driver)
+    })
+      .then(response => response.json())
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    event.preventDefault();
+  }
+
+  render() {
+
+    const { name, phone, email } = this.state.driver;
+
+    return (
+
+      <div className=" blue-box font-regular blue-text ">
+
+        <div className=" driver-info-edit font-regular blue-text">
+          <form onSubmit={this.handleSubmit}>
+
+            <div className="row driver-info-row box-padding" >
+              <div className="width-50 vehicle-info-col">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><label>Name:</label></td>
+                      <td><input type="text" defaultValue={name}/></td>
+                    </tr>
+                    <tr>
+                      <td><label>Phone:</label></td>
+                      <td><input type="text" defaultValue={phone}/></td>
+                    </tr>
+                    <tr>
+                      <td><label>Email:</label></td>
+                      <td><input type="text" defaultValue={email}/></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
 
             </div>
 
-          </div>
+            <div className='align-right'>
+              <button className="save-button rounded-button font-regular blue-text"
+                type="submit" value="Submit">Save</button>
+            </div>
 
-          <div className='align-right'>
-            <button className="save-button rounded-button font-regular blue-text"
-            type="submit" value="Submit">Save</button>
-          </div>
-
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
-
-  );
+    );
+  }
 }
