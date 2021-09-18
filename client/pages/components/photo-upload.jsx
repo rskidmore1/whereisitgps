@@ -1,43 +1,66 @@
 import React from 'react';
 
-function handlePhoto(event) {
-  const vehicleId = 2;
-  event.preventDefault();
-  const formData = new FormData(event.target);
+export default class PhotoUpload extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePhoto = this.handlePhoto.bind(this);
+    this.showUpload = this.showUpload.bind(this);
+    this.state = {
+      uploadPhoto: false,
+      photoUrl: this.props.photo
+    };
+  }
 
-  fetch(`/api/vehiclephoto/${vehicleId}`, {
-    method: 'PUT',
-    body: formData
-  })
-    .then(response => response.json())
-    .then(result => {
+  showUpload() {
+    if (this.state.uploadPhoto) {
+      this.setState({ uploadPhoto: false });
+    } else if (!this.state.uploadPhoto) {
+      this.setState({ uploadPhoto: true });
+    }
+  }
 
-      event.target.reset();
+  handlePhoto(event) {
+
+    const formData = new FormData(event.target);
+    this.setState({ uploadPhoto: false });
+
+    fetch(`/api/vehiclephoto/${this.props.vehicleId}`, {
+      method: 'PUT',
+      body: formData
     })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
+      .then(response => response.json())
+      .then(result => {
 
-export default function PhotoUpload(props) {
+        event.target.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
-  return (
+  }
 
-      <div className="vehicle-photo-div">
-        <div className=" photo-margin-div">
-          <form onSubmit={handlePhoto}>
+  render() {
+    return (
 
-            <div className="column-full photo-button-div">
-              <label className="photo-label save-button rounded-button font-regular blue-text center"><input required type="file" name="image" />Upload</label>
+         <div className="center" onClick={this.showUpload}>
+            <div className="vehicle-photo-div">
+              <div className=" photo-margin-div">
 
-              <button className="save-button rounded-button font-regular blue-text center "
-                type="submit" >Save</button>
-            </div>
-          </form>
+            <form className={this.state.uploadPhoto ? 'photo-form' : 'hidden photo-form'} onSubmit={this.handlePhoto}>
 
+              <div className="column-full photo-button-div">
+                <label className="photo-label save-button rounded-button font-regular blue-text center"><input required type="file" name="image" />Upload</label>
+
+                <button className="save-button rounded-button font-regular blue-text center "
+                  type="submit" >Save</button>
+              </div>
+            </form>
+
+                <img className="vehicle-photo" src={this.props.photo} alt="" />
+          </div>
+        </div>
         </div>
 
-      </div>
-
-  );
+    );
+  }
 }
