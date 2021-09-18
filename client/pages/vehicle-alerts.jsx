@@ -9,7 +9,7 @@ export default class VehicleAlerts extends React.Component {
     this.sendText = this.sendText.bind(this);
     this.updateAlerts = this.updateAlerts.bind(this);
 
-    fetch(`/api/vehicleinfo/${vId}`)
+    fetch(`/api/vehicleinfo/${this.props.vehicleId}`)
       .then(res => res.json())
       .then(result => {
         this.setState({ vehicle: result });
@@ -33,7 +33,7 @@ export default class VehicleAlerts extends React.Component {
   }
 
   updateAlerts(alerts) {
-    fetch(`/api/vehiclealerts/${this.state.vehicleId}`, {
+    fetch(`/api/vehiclealerts/${this.props.vehicleId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

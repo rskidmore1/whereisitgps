@@ -34,13 +34,13 @@ export default class App extends React.Component {
 
       return <VehicleList />;
     }
-    if (route.path === 'vehicle-list/routing') {
-
-      return <Routing />;
+    if (route.path === 'vehicleprofile/routing') {
+      const vehicleId = route.params.get('vehicleId');
+      return <Routing vehicleId={vehicleId}/>;
     }
-    if (route.path === 'vehicle-list/alerts') {
-
-      return <VehicleAlerts />;
+    if (route.path === 'vehicleprofile/alerts') {
+      const vehicleId = route.params.get('vehicleId');
+      return <VehicleAlerts vehicleId={vehicleId}/>;
     }
     if (route.path === 'vehicleprofile') {
       const vehicleId = route.params.get('vehicleId');
