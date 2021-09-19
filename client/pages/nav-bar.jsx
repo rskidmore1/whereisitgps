@@ -71,13 +71,13 @@ export class Drawer extends React.Component {
           <i className="fas fa-bars" onClick={this.toggle}></i>
 
         </div>
-        <div className={this.state.isOpen ? 'nav-div' : 'nav-div hidden'}>
-          <h2 onClick={this.toggle}>Nav</h2>
+        <div className={this.state.isOpen ? 'nav-div ' : 'nav-div hidden'}>
+          <h2 className="font-heavy blue-text" onClick={this.toggle}>Navigate</h2>
           <div>
 
-            <ul>
-              <li><a onClick={this.toggle} href="#">Live Map</a></li>
-              <li><a onClick={this.toggle} href="#vehicle-list">Vehicles</a></li>
+            <ul className="nav-item padding-left-1rem">
+              <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#">Live Map</a></li>
+              <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#vehicle-list">Vehicles</a></li>
             </ul>
 
           </div>

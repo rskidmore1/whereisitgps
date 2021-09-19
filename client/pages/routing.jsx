@@ -85,7 +85,7 @@ class Routing extends React.Component {
     return (
       <div>
 
-        <div className="blue-box rounted-box margin-top-1rem box-padding">
+        <div className="blue-box rounted-box margin-top-2rem center-mobile">
           <p className="blue-text font-regular">Vehicle: {this.state.vehicle.name}</p>
         </div>
 

@@ -3,6 +3,7 @@ import VehicleInfoEdit from './components/vehicle-info-edit';
 import PhotoUpload from './components/photo-upload';
 import DriverInfoEdit from './components/driver-info-edit';
 import AlertButtonBox from './components/alert-button-box';
+import DriverInfoMobile from './components/driver-info-mobile';
 export default class VehicleProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +33,7 @@ export default class VehicleProfile extends React.Component {
       <div className="two-third  ">
 
         <VehicleInfoEdit currentVehicle={currentVehicle} />
-
+        <DriverInfoMobile />
         <AlertButtonBox vehicleId={currentVehicle.vehicleId} />
       </div>
       <div className="one-third ">

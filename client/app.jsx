@@ -35,22 +35,19 @@ export default class App extends React.Component {
     }
 
     if (route.path === 'vehicle-list') {
-      // this.setState({ mobileTitle: 'Vehicles' });
       return <VehicleList />;
     }
     if (route.path === 'vehicleprofile/routing') {
       const vehicleId = route.params.get('vehicleId');
-      // this.setState({ mobileTitle: 'Routing' });
       return <Routing vehicleId={vehicleId}/>;
     }
     if (route.path === 'vehicleprofile/alerts') {
       const vehicleId = route.params.get('vehicleId');
-      // this.setState({ mobileTitle: 'Alerts' });
       return <VehicleAlerts vehicleId={vehicleId}/>;
     }
     if (route.path === 'vehicleprofile') {
       const vehicleId = route.params.get('vehicleId');
-      // this.setState({ mobileTitle: 'Vehicle' });
+
       return <VehicleProfile vehicleId={vehicleId} />;
     }
   }
