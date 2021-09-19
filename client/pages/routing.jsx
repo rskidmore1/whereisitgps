@@ -85,11 +85,11 @@ class Routing extends React.Component {
     return (
       <div>
 
-        <div className="blue-box rounted-box margin-top-2rem center-mobile">
+        <div className="blue-box rounted-box margin-top-2rem center-mobile margin-left-offset-mobile">
           <p className="blue-text font-regular">Vehicle: {this.state.vehicle.name}</p>
         </div>
 
-        <div className="map-div margin-top-1rem">
+        <div className="map-div margin-top-1rem margin-left-offset-mobile">
           <Map
             google={this.props.google}
                 containerStyle={containerStyle}
@@ -117,8 +117,8 @@ class Routing extends React.Component {
           </Map >
         </div>
 
-        <div className=' route-alert-div  blue-box rounted-box margin-top-1rem box-padding'>
-          <div className="row center">
+        <div className=' route-alert-div  blue-box rounted-box margin-top-1rem margin-left-offset-1rem-mobile box-padding '>
+          <div className="row center ">
 
             <div className="">
               <button className="save-button blue-text  " onClick={this.sendText} >Send</button>
@@ -140,6 +140,7 @@ class Routing extends React.Component {
               </table>
 
             </div>
+            <a href={this.state.link}>{this.state.link}</a>
           </div>
         </div>
 
