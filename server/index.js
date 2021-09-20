@@ -26,6 +26,9 @@ const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
 
+/// /
+// Vehicles
+/// /
 app.post('/api/vehicleinfo', (req, res, next) => {
 
   const { name, make, model, year, color, plate } = req.body;
@@ -132,6 +135,43 @@ app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
     });
 });
 
+app.put('/api/vehiclephoto/:vehicleId', uploadsMiddleware, (req, res, next) => {
+
+  const vehicleId = parseInt(req.params.vehicleId, 10);
+  if (!Number.isInteger(vehicleId) || vehicleId < 1) {
+    throw new ClientError(400, 'vehicleId must be a positive integer');
+
+  }
+
+  const urlUpload = '/images/' + req.file.filename;
+
+  const sql = `
+    update "vehicles" set
+      "photo" = $1
+      where "vehicleId" = $2;
+  `;
+
+  const params = [urlUpload, vehicleId];
+
+  db.query(sql, params)
+    .then(result => {
+      const veh = result.rows;
+      res.json(veh);
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
+/// /
+// End Vehicles
+/// /
+
+/// /
+// Drivers
+/// /
+
 app.get('/api/driverinfo/:driverId', (req, res, next) => {
   const driverId = parseInt(req.params.driverId, 10);
   if (!Number.isInteger(driverId) || driverId < 1) {
@@ -185,6 +225,14 @@ app.post('/api/driverinfo', (req, res, next) => {
     });
 
 });
+
+/// /
+// End Drivers
+/// /
+
+/// /
+// Miscellaneous
+/// /
 
 app.post('/api/sendtext', (req, res, next) => {
 
@@ -248,34 +296,9 @@ app.get('/api/demoroutes', (req, res, next) => {
     });
 });
 
-app.put('/api/vehiclephoto/:vehicleId', uploadsMiddleware, (req, res, next) => {
-
-  const vehicleId = parseInt(req.params.vehicleId, 10);
-  if (!Number.isInteger(vehicleId) || vehicleId < 1) {
-    throw new ClientError(400, 'vehicleId must be a positive integer');
-
-  }
-  // console.log(req);
-  const urlUpload = '/images/' + req.file.filename;
-
-  const sql = `
-    update "vehicles" set
-      "photo" = $1
-      where "vehicleId" = $2;
-  `;
-
-  const params = [urlUpload, vehicleId];
-
-  db.query(sql, params)
-    .then(result => {
-      const veh = result.rows;
-      res.json(veh);
-    })
-    .catch(err => {
-      next(err);
-    });
-
-});
+/// /
+// End Miscellaneous
+/// /
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
