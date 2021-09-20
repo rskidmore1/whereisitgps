@@ -28,7 +28,8 @@ app.use(jsonMiddleware);
 
 /// /
 // Vehicles
-/// /
+///
+
 app.post('/api/vehicleinfo', (req, res, next) => {
 
   const { name, make, model, year, color, plate } = req.body;
@@ -164,13 +165,13 @@ app.put('/api/vehiclephoto/:vehicleId', uploadsMiddleware, (req, res, next) => {
 
 });
 
-/// /
+///
 // End Vehicles
 /// /
 
 /// /
 // Drivers
-/// /
+///
 
 app.get('/api/driverinfo/:driverId', (req, res, next) => {
   const driverId = parseInt(req.params.driverId, 10);
@@ -226,13 +227,79 @@ app.post('/api/driverinfo', (req, res, next) => {
 
 });
 
-/// /
+///
 // End Drivers
 /// /
 
 /// /
-// Miscellaneous
+// Users
+///
+
+app.get('/api/user/:userId', (req, res, next) => {
+
+  const userId = parseInt(req.params.userId, 10);
+
+  const params = [userId];
+  const sql = `
+    select * from "users"
+    where "userId" = $1;
+    `;
+
+  db.query(sql, params)
+    .then(results => {
+      const [record] = results.rows;
+      if (!record) {
+
+        throw new ClientError(404, `cannot find driverId ${userId}`); // This is returning html to instead json message to httpie
+      } else {
+
+        res.json(record);
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
+app.put('/api/user/:userid', (req, res, next) => {
+
+  const userid = parseInt(req.params.userid, 10);
+  const { username, firstname, lastname, phone, email, userId } = req.body;
+
+  if (!Number.isInteger(userid) || userid < 1) {
+    throw new ClientError(400, 'recordId must be a positive integer');
+
+  }
+
+  const sql = `
+    update "users" set
+      "username" = $1, "firstname" = $2,
+      "lastname" = $3, "phone" = $4,
+      "email" = $5
+      where "userId" = $6;
+  `;
+
+  const params = [username, firstname, lastname, phone, email, userId];
+
+  db.query(sql, params)
+    .then(result => {
+      const record = result.rows;
+      res.json(record);
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
+///
+// End Users
+// /
+
 /// /
+// Miscellaneous
+///
 
 app.post('/api/sendtext', (req, res, next) => {
 
@@ -296,7 +363,7 @@ app.get('/api/demoroutes', (req, res, next) => {
     });
 });
 
-/// /
+///
 // End Miscellaneous
 /// /
 
