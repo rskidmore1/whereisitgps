@@ -25,14 +25,8 @@ export default class TripsList extends React.Component {
 
   onMouseEnterHandler(event) {
     this.setState({ hover: true });
-    this.state.stopsList.map(stop => {
-      if (String(stop.stopId) === event.currentTarget.id) {
-        // console.log(((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60);
-        return this.setState({ mapCoords: { lat: Number(stop.stopLocation.lat), lng: Number(stop.stopLocation.lng) } });
-      }
-      return null;
-    });
-
+    const stop = this.state.stopsList.find(({ stopId }) => stopId === Number(event.currentTarget.id));
+    this.setState({ mapCoords: { lat: Number(stop.stopLocation.lat), lng: Number(stop.stopLocation.lng) } });
   }
 
   onMouseLeaveHandler(event) {
