@@ -8,6 +8,7 @@ import VehicleAlerts from './pages/vehicle-alerts';
 import VehicleProfile from './pages/vehicle-profile';
 import MobileBar from './pages/components/mobile-bar';
 import Settings from './pages/settings';
+import StopsList from './pages/stops-list';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -55,6 +56,10 @@ export default class App extends React.Component {
 
       return <Settings />;
     }
+    if (route.path === 'stops') {
+
+      return <StopsList />;
+    }
   }
 
   render() {
@@ -69,6 +74,8 @@ export default class App extends React.Component {
       title = 'Vehicles';
     } else if (this.state.route.path === 'vehicleprofile') {
       title = 'Vehicle';
+    } else if (this.state.route.path === 'settings') {
+      title = 'Settings';
     }
 
     return (
