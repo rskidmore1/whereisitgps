@@ -48,7 +48,7 @@ export default class TripsList extends React.Component {
           {this.state.stopsList.map(stop =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}
-              key={stop.stopId} id={stop.stopId} className="box-two-thirds font-regular blue-text list-margin list-padding"
+              key={stop.stopId} id={stop.stopId} className="box-two-thirds  font-regular blue-text list-margin list-padding"
             >
 
               <a href={'#stopprofile?stopId=' + stop.stopId} className="nav-a">
@@ -56,7 +56,7 @@ export default class TripsList extends React.Component {
                   <tbody>
                     <tr>
                       <td className=" blue-text">Stop location:</td>
-                      <td className=" blue-text">{JSON.stringify(stop.stopLocation)} </td>
+                      <td className=" blue-text">lat:{JSON.stringify(stop.stopLocation.lat)} <br></br> lng: {JSON.stringify(stop.stopLocation.lng)}  </td>
                     </tr>
                     <tr>
                       <td className=" blue-text">vehicle: </td>
