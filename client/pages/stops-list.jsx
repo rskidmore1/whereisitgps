@@ -56,7 +56,7 @@ export default class TripsList extends React.Component {
                   <tbody>
                     <tr>
                       <td className=" blue-text">Stop location:</td>
-                      <td className=" blue-text">lat:{JSON.stringify(stop.stopLocation.lat)} <br></br> lng: {JSON.stringify(stop.stopLocation.lng)}  </td>
+                      <td className=" blue-text">lat: {stop.stopLocation.lat} <br></br> lng: {stop.stopLocation.lng}  </td>
                     </tr>
                     <tr>
                       <td className=" blue-text">vehicle: </td>
