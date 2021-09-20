@@ -43,7 +43,7 @@ export default class PhotoUpload extends React.Component {
     return (
 
          <div className="center" onClick={this.showUpload}>
-            <div className="vehicle-photo-div">
+            <div className="vehicle-photo-div center">
               <div className=" photo-margin-div">
 
             <form className={this.state.uploadPhoto ? 'photo-form' : 'hidden photo-form'} onSubmit={this.handlePhoto}>

@@ -22,12 +22,12 @@ export default function DriverInfoEdit() {
 
   return (
 
-    <div className=" blue-box font-regular blue-text ">
+    <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
 
-      <div className=" driver-info-edit font-regular blue-text">
+      <div className=" driver-info-edit font-regular blue-text ">
         <form onSubmit={handleSubmit}>
 
-          <div className="row driver-info-row box-padding" >
+          <div className="row driver-info-row " >
             <div className="width-50 vehicle-info-col">
               <table>
                 <tbody>

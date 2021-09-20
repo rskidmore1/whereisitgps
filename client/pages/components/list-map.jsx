@@ -21,22 +21,27 @@ class MapList extends React.Component {
     return (
 
      <React.Fragment>
-        <div className="list-map-div">
-              <Map
+        <div className="list-map-div center">
+          <Map
 
-                google={this.props.google}
-                containerStyle={containerStyle}
-                initialCenter={this.state.mapCenter}
-                zoom={9} >
+            google={this.props.google}
+            containerStyle={containerStyle}
+            initialCenter={this.state.mapCenter}
+            zoom={8}
+            mapTypeControl={false}
+            streetViewControl={false}
+            zoomControl={false}
+            fullscreenControl={false}
+            >
 
-                <Marker
-                 position={{ lat: this.props.coords.lat, lng: this.props.coords.lng }}
-                  />
+            <Marker
+              position={{ lat: this.props.coords.lat, lng: this.props.coords.lng }}
+              />
 
-              </Map >
+          </Map >
         </div>
 
-                  </React.Fragment>
+      </React.Fragment>
 
     );
   }
