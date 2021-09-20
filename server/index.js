@@ -298,6 +298,38 @@ app.put('/api/user/:userid', (req, res, next) => {
 // /
 
 /// /
+// Stops
+//
+app.get('/api/stopslist', (req, res, next) => {
+  const sql = `
+    select "stopId", "stopLocation",
+      "stopAddress", "createdAt",
+      "vehicleId" , "beginTime",
+      "endTime"
+    from "stops";
+    `;
+
+  db.query(sql)
+    .then(results => {
+      const stops = results.rows;
+      if (!stops) {
+
+        throw new ClientError(404, 'cannot find stops'); // This is returning html to instead json message to httpie
+      } else {
+
+        res.json(stops);
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+//
+// End Stops
+/// /
+
+/// /
 // Miscellaneous
 ///
 
