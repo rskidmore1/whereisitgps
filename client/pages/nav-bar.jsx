@@ -29,6 +29,9 @@ export default class NavBar extends React.Component {
                 <li className="nav-item">
                 <a id="vehicle-list" className={this.state.openIndex === 'vehicle-list' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#vehicle-list" onClick={this.handleClick}>Vehicles</a>
                 </li>
+                <li className="nav-item">
+                  <a id="settings" className={this.state.openIndex === 'settings' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#settings" onClick={this.handleClick}>Settings</a>
+                </li>
               </ul>
 
             </nav>
@@ -78,6 +81,8 @@ export class Drawer extends React.Component {
             <ul className="nav-item padding-left-1rem">
               <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#">Live Map</a></li>
               <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#vehicle-list">Vehicles</a></li>
+              <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#settings">Settings</a></li>
+
             </ul>
 
           </div>

@@ -7,6 +7,7 @@ import Routing from './pages/routing';
 import VehicleAlerts from './pages/vehicle-alerts';
 import VehicleProfile from './pages/vehicle-profile';
 import MobileBar from './pages/components/mobile-bar';
+import Settings from './pages/settings';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -49,6 +50,10 @@ export default class App extends React.Component {
       const vehicleId = route.params.get('vehicleId');
 
       return <VehicleProfile vehicleId={vehicleId} />;
+    }
+    if (route.path === 'settings') {
+
+      return <Settings />;
     }
   }
 
