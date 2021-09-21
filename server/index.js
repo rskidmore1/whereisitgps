@@ -325,6 +325,33 @@ app.get('/api/stopslist', (req, res, next) => {
     });
 });
 
+app.get('/api/stop/:stopId', (req, res, next) => {
+
+  const stopId = parseInt(req.params.stopId, 10);
+
+  const params = [stopId];
+  const sql = `
+    select * from "stops"
+    where "stopId" = $1;
+    `;
+
+  db.query(sql, params)
+    .then(results => {
+      const [record] = results.rows;
+      if (!record) {
+
+        throw new ClientError(404, `cannot find recordId ${stopId}`); // This is returning html to instead json message to httpie
+      } else {
+
+        res.json(record);
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+
+});
+
 //
 // End Stops
 /// /

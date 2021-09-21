@@ -84,11 +84,10 @@ CREATE TABLE "users" (
 );
 CREATE TABLE "stops" (
     "stopId" serial ,
-    "stopLat" double precision ,
-    "stopLng" double precision ,
+    "stopLocation" json,
     "stopAddress" TEXT ,
     "createdAt" timestamp with time zone ,
-    "vehicleId" serial ,
+    "vehicleId" integer ,
     "beginTime" TIMESTAMP ,
     "endTime" TIMESTAMP,
     CONSTRAINT "stops_pk" PRIMARY KEY ("stopId")

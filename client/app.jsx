@@ -9,6 +9,7 @@ import VehicleProfile from './pages/vehicle-profile';
 import MobileBar from './pages/components/mobile-bar';
 import Settings from './pages/settings';
 import StopsList from './pages/stops-list';
+import StopProfile from './pages/stop-profile';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -59,6 +60,10 @@ export default class App extends React.Component {
     if (route.path === 'stops') {
 
       return <StopsList />;
+    }
+    if (route.path === 'stopprofile') {
+      const stopId = route.params.get('stopId');
+      return <StopProfile stopId={stopId} />;
     }
   }
 
