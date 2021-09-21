@@ -15,7 +15,7 @@ export default class StopProfile extends React.Component {
 
     };
 
-    fetch(`/api/stop/${this.state.stopId}`)
+    fetch(`/api/stop/${this.props.stopId}`)
       .then(res => res.json())
       .then(result => {
 
