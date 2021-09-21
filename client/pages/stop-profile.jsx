@@ -27,8 +27,6 @@ export default class StopProfile extends React.Component {
 
   render() {
 
-    // const currentStop = Object.assign({}, this.state.stop);
-    // console.log(currentStop.stopLocation);
     const { stopLocation, vehicleId, beginTime, endTime } = this.state.stop;
     return (
       <React.Fragment>
