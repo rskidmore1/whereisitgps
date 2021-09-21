@@ -1,11 +1,16 @@
 import React from 'react';
-// import MapList from './components/list-map';
+import MapList from './components/list-map';
 
 export default class StopProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stop: {},
+      stop: {
+        stopLocation: {},
+        vehicleId: 0,
+        beginTime: null,
+        endTime: null
+      },
       stopId: this.props.stopId
 
     };
@@ -22,8 +27,9 @@ export default class StopProfile extends React.Component {
 
   render() {
 
-    const currentStop = Object.assign({}, this.state.stop);
-    // console.log(currentStop);
+    // const currentStop = Object.assign({}, this.state.stop);
+    // console.log(currentStop.stopLocation);
+    const { stopLocation, vehicleId, beginTime, endTime } = this.state.stop;
     return (
       <React.Fragment>
       <div className="two-third  ">
@@ -38,15 +44,15 @@ export default class StopProfile extends React.Component {
                       <tbody>
                         <tr>
                           <td>Stop Location: </td>
-                        {/* <td>lat: {currentStop.stopLocation.lat}<br></br> lng: {currentStop.stopLocation.lng} </td> */}
+                        <td>{JSON.stringify(stopLocation)}</td>
                         </tr>
                         <tr>
                           <td>Vehicle: </td>
-                          <td>{currentStop.vehicleId} </td>
+                          <td>{vehicleId} </td>
                         </tr>
                         <tr>
                           <td>Duration: </td>
-                        <td>{((new Date(currentStop.beginTime).getTime() - new Date(currentStop.endTime).getTime()) / 1000) / 60}</td>
+                        <td>{((new Date(beginTime).getTime() - new Date(endTime).getTime()) / 1000) / 60}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -59,7 +65,8 @@ export default class StopProfile extends React.Component {
           </div>
       </div>
       <div className="one-third ">
-        {/* <MapList coords={currentStop.stopLocation} /> */}
+          <MapList coords={this.state.stop.stopLocation} />
+
         </div>
 
       </React.Fragment>

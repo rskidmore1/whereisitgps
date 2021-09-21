@@ -62,8 +62,8 @@ export default class App extends React.Component {
       return <StopsList />;
     }
     if (route.path === 'stopprofile') {
-      const stopId = route.params.get('stopId');
-
+      const stopIdraw = route.params.get('stopId');
+      const stopId = String(stopIdraw);
       return <StopProfile stopId={stopId} />;
     }
   }
