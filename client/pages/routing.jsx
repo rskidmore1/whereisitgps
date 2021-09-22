@@ -10,8 +10,8 @@ class Routing extends React.Component {
 
     this.state = {
       vehicleLocation: {
-        lat: 40.854885,
-        lng: -88.081807
+        lat: 33.91696347,
+        lng: -117.88405129
       },
       route: [],
       counter: 1,
@@ -54,7 +54,7 @@ class Routing extends React.Component {
         Route:
         ${this.state.link}
     `;
-      const text = { toNumber: '+19492664664', message: message };
+      const text = { toNumber: '+16192025415', message: message };
 
       fetch('/api/sendtext/', {
         method: 'POST',
