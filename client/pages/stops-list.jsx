@@ -54,12 +54,12 @@ export default class TripsList extends React.Component {
                     </tr>
                     <tr>
                       <td className=" blue-text">vehicle: </td>
-                      <td className=" blue-text">{stop.vehicleId}</td>
+                      <td className=" blue-text">Truck{stop.vehicleId}</td>
 
                     </tr>
                     <tr>
                       <td className=" blue-text">Duration: </td>
-                      <td className=" blue-text">{((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60 }</td>
+                      <td className=" blue-text">{((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60 } minutes</td>
 
                     </tr>
                   </tbody>

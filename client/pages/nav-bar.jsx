@@ -84,7 +84,7 @@ export class Drawer extends React.Component {
             <ul className="nav-item padding-left-1rem">
               <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#">Live Map</a></li>
               <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#vehicle-list">Vehicles</a></li>
-              <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#stops">Vehicles</a></li>
+              <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#stops">Stops</a></li>
               <li><a className="nav-a blue-text font-regular" onClick={this.toggle} href="#settings">Settings</a></li>
 
             </ul>

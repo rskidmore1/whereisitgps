@@ -41,6 +41,36 @@ class LiveMap extends React.Component {
         movedAt: null,
         stopped: false,
         stoppedTimer: 0
+      },
+      {
+        vehicleId: 4,
+        coords: {
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false,
+        stoppedTimer: 0
+      },
+      {
+        vehicleId: 5,
+        coords: {
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false,
+        stoppedTimer: 0
+      },
+      {
+        vehicleId: 6,
+        coords: {
+          lat: 33.91696347,
+          lng: -117.88405129
+        },
+        movedAt: null,
+        stopped: false,
+        stoppedTimer: 0
       }]
     };
 
@@ -85,7 +115,7 @@ class LiveMap extends React.Component {
         if (vehicle.coords.lat !== this.state.demoRoutes[index][demoCount].lat && vehicle.coords.lng !== this.state.demoRoutes[index][demoCount].lon) {
           stopped = false;
           timeStamp = Date.now();
-        } else if (timeStamp + 42000 <= Date.now()) {
+        } else if (timeStamp + 1000 <= Date.now()) {
           stopped = true;
         }
 
@@ -96,7 +126,7 @@ class LiveMap extends React.Component {
       if (demoCount === demoRoutesMaxCount) {
         this.setState({ demoCount: 0 });
       }
-    }, 2000
+    }, 500
     );
 
   }

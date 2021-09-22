@@ -1,7 +1,7 @@
 
 --Users
 insert into "users" ("username", "phone", "email")
-values ('rskidmore1', '+16192025415', 'ryan.skidmore@yahoo.com');
+values ('businessowner', '+16192025415', 'owner@business.com');
 
 
 --Vehciles
@@ -39,22 +39,22 @@ values ('Jack', '949-266-4664', 'jack@prepboy.com', '3');
 
 --Stops
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('1','{"lat":"33.81699566","lng":"-117.79417870"}', NOW(),  '2021-09-18T03:33:57.187023Z', '2021-09-18T02:40:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('2','{"lat":"33.61699570","lng":"-117.99417000"}', NOW(),  '2021-09-18T03:07:57.187023Z', '2021-09-18T02:31:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('3','{"lat":"33.82679566","lng":"-117.79515870"}', NOW(),  '2021-09-18T03:06:57.187023Z', '2021-09-18T02:55:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('4','{"lat":"33.91699511","lng":"-117.89417822"}', NOW(),  '2021-09-18T03:01:57.187023Z', '2021-09-18T02:30:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('1','{"lat":"33.91699533","lng":"-117.89417833"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
-values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
+values ('1','{"lat":"33.91699544","lng":"-117.89417844"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');
 
 insert into "stops" ("vehicleId", "stopLocation", "createdAt", "beginTime", "endTime" )
 values ('1','{"lat":"33.91699588","lng":"-117.89417806"}', NOW(),  '2021-09-18T03:46:57.187023Z', '2021-09-18T02:46:57.187023Z');

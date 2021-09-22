@@ -46,11 +46,11 @@ export default class StopProfile extends React.Component {
                         </tr>
                         <tr>
                           <td>Vehicle: </td>
-                          <td>{vehicleId} </td>
+                          <td>truck{vehicleId} </td>
                         </tr>
                         <tr>
                           <td>Duration: </td>
-                        <td>{((new Date(beginTime).getTime() - new Date(endTime).getTime()) / 1000) / 60}</td>
+                        <td>{((new Date(beginTime).getTime() - new Date(endTime).getTime()) / 1000) / 60} minutes</td>
                         </tr>
                       </tbody>
                     </table>
