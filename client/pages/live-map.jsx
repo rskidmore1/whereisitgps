@@ -5,6 +5,7 @@ class LiveMap extends React.Component {
 
   constructor(props) {
     super(props);
+    // console.log(process.env.GOOGLE_API_KEY);
 
     this.state = {
       demoRoutes: [],
@@ -132,6 +133,7 @@ class LiveMap extends React.Component {
   }
 
   componentDidMount() {
+
     this.startVehicleUpdates();
   }
 
@@ -142,6 +144,7 @@ class LiveMap extends React.Component {
       width: '100%',
       height: '100%'
     };
+    // console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
     return (
       <div className="two-third">
