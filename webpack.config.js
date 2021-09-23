@@ -1,4 +1,6 @@
+const webpack = require('webpack');
 require('dotenv/config');
+
 const path = require('path');
 
 const clientPath = path.join(__dirname, 'client');
@@ -12,6 +14,9 @@ module.exports = {
   output: {
     path: serverPublicPath
   },
+  plugins: [
+    new webpack.EnvironmentPlugin(['GOOGLE_MAPS_TOKEN'])
+  ],
   module: {
     rules: [
       {
@@ -22,6 +27,7 @@ module.exports = {
           options: {
             plugins: [
               '@babel/plugin-transform-react-jsx'
+
             ]
           }
         }
