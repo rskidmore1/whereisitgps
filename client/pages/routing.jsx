@@ -150,6 +150,6 @@ class Routing extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyA9pD-yx8UXTtmNTaIfo8vzomK38m8U5LM')
+  apiKey: (process.env.GOOGLE_MAPS_TOKEN)
 
 })(Routing);
