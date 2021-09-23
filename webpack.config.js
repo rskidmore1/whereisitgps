@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 
+require('dotenv/config');
+
 const path = require('path');
 
 const clientPath = path.join(__dirname, 'client');
@@ -14,9 +16,7 @@ module.exports = {
     path: serverPublicPath
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.GOOGLE_MAPS_TOKEN': JSON.stringify(process.env.GOOGLE_MAPS_TOKEN)
-    })
+    new webpack.EnvironmentPlugin(['GOOGLE_MAPS_TOKEN'])
   ],
   module: {
     rules: [
