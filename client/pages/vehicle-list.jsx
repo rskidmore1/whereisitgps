@@ -10,15 +10,21 @@ export default class VehicleList extends React.Component {
     this.state = {
       vehiclesList: [],
       hover: false,
-      mapCoords: {}
+      mapCoords: {},
+      isLoaded: false,
+      networkError: ''
     };
     fetch('/api/vehicleslist')
       .then(res => res.json())
       .then(result => {
-
-        this.setState({ vehiclesList: result });
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ vehiclesList: result, isLoaded: true });
+        }
       })
       .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
         console.error(err);
       });
   }
@@ -44,6 +50,10 @@ export default class VehicleList extends React.Component {
 
       <React.Fragment>
         <div className="two-third">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
           {this.state.vehiclesList.map(vehicle =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}

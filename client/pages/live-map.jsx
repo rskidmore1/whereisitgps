@@ -12,6 +12,7 @@ class LiveMap extends React.Component {
       demoRoutesMaxCount: 0,
       demoCount: 0,
       isLoaded: false,
+      networkError: '',
       mapCenter: {
         lat: 33.91696347,
         lng: -117.88405129
@@ -79,22 +80,26 @@ class LiveMap extends React.Component {
     fetch('/api/demoroutes')
       .then(res => res.json())
       .then(result => {
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          let routesArr = [];
+          const demoRoutesArr = [];
+          this.setState({ demoRoutesMaxCount: result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length });
+          for (let i = 0; i < result.rows.length; i++) {
+            for (let j = 0; j < result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length; j++) {
+              routesArr.push(result.rows[i].demoRoute.gpx.trk[0].trkseg[0].trkpt[j].ATTR);
 
-        let routesArr = [];
-        const demoRoutesArr = [];
-        this.setState({ demoRoutesMaxCount: result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length });
-        for (let i = 0; i < result.rows.length; i++) {
-          for (let j = 0; j < result.rows[0].demoRoute.gpx.trk[0].trkseg[0].trkpt.length; j++) {
-            routesArr.push(result.rows[i].demoRoute.gpx.trk[0].trkseg[0].trkpt[j].ATTR);
+            }
 
+            demoRoutesArr.push(routesArr);
+            routesArr = [];
           }
-
-          demoRoutesArr.push(routesArr);
-          routesArr = [];
+          this.setState({ demoRoutes: demoRoutesArr, isLoaded: true });
         }
-        this.setState({ demoRoutes: demoRoutesArr, isLoaded: true });
       })
       .catch(err => {
+        this.setState({ networkError: 'Load failed. Please try again', isLoaded: true });
         console.error(err);
       });
 
@@ -172,7 +177,7 @@ class LiveMap extends React.Component {
               />
             )}
         </Map >
-        <p>hello</p>
+        <p>{this.state.networkError}</p>
         </div>
 
       </div>

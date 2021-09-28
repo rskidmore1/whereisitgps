@@ -11,16 +11,25 @@ export default class StopProfile extends React.Component {
         beginTime: null,
         endTime: null
       },
-      stopId: this.props.stopId
+      stopId: this.props.stopId,
+      isLoaded: false,
+      networkError: ''
 
     };
 
     fetch(`/api/stop/${this.props.stopId}`)
       .then(res => res.json())
       .then(result => {
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ stop: result, isLoaded: true });
+        }
 
-        this.setState({ stop: result });
-
+      })
+      .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
+        console.error(err);
       });
 
   }
@@ -31,6 +40,10 @@ export default class StopProfile extends React.Component {
     return (
       <React.Fragment>
       <div className="two-third  ">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
 
           <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
 

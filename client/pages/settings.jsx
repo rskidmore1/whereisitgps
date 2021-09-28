@@ -4,13 +4,27 @@ export default class Settings extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { user: {}, userId: 1 };
+    this.state = {
+      user: {},
+      userId: 1,
+      isLoaded: false,
+      networkError: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
 
     fetch(`/api/user/${this.state.userId}`)
       .then(res => res.json())
       .then(result => {
-        this.setState({ user: result });
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ user: result, isLoaded: true });
+        }
+      })
+      .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
+        console.error(err);
+
       });
 
   }
@@ -39,6 +53,10 @@ export default class Settings extends React.Component {
     return (
        <React.Fragment>
           <div className="two-third  ">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
           <div className=" blue-box font-regular box-padding blue-text rounted-box margin-top-1rem">
 
           <div className=" font-regular blue-text ">

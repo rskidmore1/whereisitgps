@@ -10,16 +10,25 @@ export default class VehicleProfile extends React.Component {
     this.state = {
       vehicle: {},
       vehicleId: this.props.vehicleId,
-      driver: {}
+      driver: {},
+      isLoaded: false,
+      networkError: ''
 
     };
 
     fetch(`/api/vehicleinfo/${this.state.vehicleId}`)
       .then(res => res.json())
       .then(result => {
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ vehicle: result, isLoaded: true });
+        }
 
-        this.setState({ vehicle: result });
-
+      })
+      .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
+        console.error(err);
       });
 
   }
@@ -31,6 +40,10 @@ export default class VehicleProfile extends React.Component {
     return (
       <React.Fragment>
       <div className="two-third  ">
+        <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+          <div ></div>
+        </div>
+        <p>{this.state.networkError}</p>
 
         <VehicleInfoEdit currentVehicle={currentVehicle} />
         <DriverInfoMobile />
