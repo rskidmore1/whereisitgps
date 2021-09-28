@@ -11,16 +11,25 @@ export default class StopProfile extends React.Component {
         beginTime: null,
         endTime: null
       },
-      stopId: this.props.stopId
+      stopId: this.props.stopId,
+      isLoaded: false,
+      networkError: ''
 
     };
 
     fetch(`/api/stop/${this.props.stopId}`)
       .then(res => res.json())
       .then(result => {
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ stop: result, isLoaded: true });
+        }
 
-        this.setState({ stop: result });
-
+      })
+      .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
+        console.error(err);
       });
 
   }
@@ -31,10 +40,14 @@ export default class StopProfile extends React.Component {
     return (
       <React.Fragment>
       <div className="two-third  ">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
 
           <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
 
-            <div className=" driver-info-edit font-regular blue-text ">
+            <div className=" margin-top-1rem font-regular blue-text ">
 
                 <div className="row driver-info-row " >
                   <div className="width-50 vehicle-info-col">
@@ -42,11 +55,12 @@ export default class StopProfile extends React.Component {
                       <tbody>
                         <tr>
                           <td>Stop Location: </td>
-                        <td>{JSON.stringify(stopLocation)}</td>
+                        <td> {'Lat: ' + JSON.stringify(stopLocation.lat)}<br></br>{'Lng: ' + JSON.stringify(stopLocation.lng)}</td>
+
                         </tr>
                         <tr>
                           <td>Vehicle: </td>
-                          <td>truck{vehicleId} </td>
+                          <td>Truck{vehicleId} </td>
                         </tr>
                         <tr>
                           <td>Duration: </td>
@@ -63,7 +77,9 @@ export default class StopProfile extends React.Component {
           </div>
       </div>
       <div className="one-third ">
+        <div className="stop-profile-map-mobile ">
           <MapList coords={this.state.stop.stopLocation} />
+        </div>
 
         </div>
 

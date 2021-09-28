@@ -4,20 +4,33 @@ export default class Settings extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { user: {}, userId: 1 };
+    this.state = {
+      user: {},
+      userId: 1,
+      isLoaded: false,
+      networkError: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
 
     fetch(`/api/user/${this.state.userId}`)
       .then(res => res.json())
       .then(result => {
-        this.setState({ user: result });
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ user: result, isLoaded: true });
+        }
+      })
+      .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
+        console.error(err);
+
       });
 
   }
 
   handleSubmit(event) {
     const record = { username: event.target[0].value, firstname: event.target[1].value, lastname: event.target[2].value, phone: event.target[3].value, email: event.target[4].value, userId: this.state.userId };
-    // console.log(record);
     fetch(`/api/user/${this.state.userId}`, {
       method: 'PUT',
       headers: {
@@ -40,9 +53,13 @@ export default class Settings extends React.Component {
     return (
        <React.Fragment>
           <div className="two-third  ">
-     <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
+          <div className=" blue-box font-regular box-padding blue-text rounted-box margin-top-1rem">
 
-          <div className=" driver-info-edit font-regular blue-text ">
+          <div className=" font-regular blue-text ">
             <form onSubmit={this.handleSubmit}>
 
               <div className="row driver-info-row " >

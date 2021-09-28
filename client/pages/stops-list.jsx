@@ -10,15 +10,21 @@ export default class TripsList extends React.Component {
     this.state = {
       stopsList: [],
       hover: false,
-      mapCoords: {}
+      mapCoords: {},
+      isLoaded: false,
+      networkError: ''
     };
     fetch('/api/stopslist')
       .then(res => res.json())
       .then(result => {
-
-        this.setState({ stopsList: result });
+        if (!result) {
+          this.setState({ networkError: 'Results are empty.' });
+        } else {
+          this.setState({ stopsList: result, isLoaded: true });
+        }
       })
       .catch(err => {
+        this.setState({ isLoaded: true, networkError: 'Load failed. Please try again' });
         console.error(err);
       });
   }
@@ -39,10 +45,15 @@ export default class TripsList extends React.Component {
 
       <React.Fragment>
         <div className="two-third">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
+          <p>{this.state.networkError}</p>
+
           {this.state.stopsList.map(stop =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}
-              key={stop.stopId} id={stop.stopId} className="box-two-thirds  font-regular blue-text list-margin list-padding"
+              key={stop.stopId} id={stop.stopId} className="box-two-thirds  vehicle-list-item font-regular blue-text list-margin list-padding "
             >
 
               <a href={'#stopprofile?stopId=' + stop.stopId} className="nav-a">

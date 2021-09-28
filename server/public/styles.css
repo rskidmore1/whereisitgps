@@ -246,6 +246,39 @@ img {
   height: 100px;
 }
 
+/* Loading spinners  */
+.lds-circle {
+  transform: translateZ(1px);
+}
+
+.lds-circle > div {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #c3bef7;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes lds-circle {
+  0%,
+  100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
 
 /* Mobile styling */
 .mobile-title {
@@ -311,6 +344,14 @@ p {
   .margin-left-offset-1rem-mobile {
     margin-left: 1rem;
   }
+
+  .stop-profile-map-mobile {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -326,6 +367,5 @@ p {
     display: none;
   }
 }
-
 
 /* nav end  */
