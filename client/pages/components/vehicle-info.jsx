@@ -3,7 +3,7 @@ import React from 'react';
 export default function VehicleInfo(props) {
   const { name, make, model, year, color, plate } = props.currentVehicle;
   return (
-    <div className=" box-two-thirds font-regular blue-text ">
+    <div className=" box-two-thirds  blue-text ">
       <div className="row vehicle-info-row box-padding">
 
         <div className="width-50 vehicle-info-col ">

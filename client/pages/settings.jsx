@@ -57,9 +57,9 @@ export default class Settings extends React.Component {
             <div ></div>
           </div>
           <p>{this.state.networkError}</p>
-          <div className=" blue-box font-regular box-padding blue-text rounted-box margin-top-1rem">
+          <div className=" blue-box  box-padding blue-text rounted-box margin-top-1rem">
 
-          <div className=" font-regular blue-text ">
+          <div className="  blue-text ">
             <form onSubmit={this.handleSubmit}>
 
               <div className="row driver-info-row " >
@@ -95,7 +95,7 @@ export default class Settings extends React.Component {
               </div>
 
               <div className='align-right'>
-                <button className="save-button rounded-button font-regular blue-text"
+                <button className="save-button rounded-button  blue-text"
                 type="submit" value="Submit">Save</button>
               </div>
 
