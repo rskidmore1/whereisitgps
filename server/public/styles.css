@@ -1,3 +1,53 @@
+/* Element tag */
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  width: 60px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+td {
+  padding-right: 0.5rem;
+}
+
+img {
+  width: 100%;
+  height: inherit;
+}
+
+/* Font */
+.blue-text {
+  color: #0d3b66;
+}
+
+.font-heavy {
+  font-weight: 900;
+}
+
+/* Box */
+
+.box-padding {
+  padding: 0.5rem;
+}
+
+.one-third {
+  width: 22%;
+}
+
+.two-third {
+  width: 56%;
+  padding: 1rem;
+}
+
 .box-two-thirds {
   background-color: #e5ecf4;
   width: 320px;
@@ -8,10 +58,6 @@
   width: 350px;
 }
 
-button {
-  cursor: pointer;
-}
-
 .blue-box {
   background-color: #e5ecf4;
 }
@@ -19,6 +65,94 @@ button {
 .rounted-box {
   border-radius: 0.25rem;
 }
+
+.nav-box {
+  width: 8rem;
+  height: 12rem;
+}
+
+.check-box {
+  margin: 0;
+  width: 10px;
+}
+
+
+
+/* Drvier */
+.driver-info-margin {
+  margin-top: 1rem;
+}
+
+.driver-info-edit {
+  margin-top: 1rem;
+}
+
+/* Vehicle */
+
+.vehicle-info {
+  width: 80%;
+}
+
+.vehicle-info-edit {
+  width: 80%;
+}
+
+.vehicle-photo-div {
+  background-color: lightgray;
+  width: 10rem;
+  height: 10rem;
+}
+
+.photo-margin-div {
+  padding-top: 20%;
+  position: relative;
+}
+
+.vehicle-photo {
+  object-fit: scale-down;
+}
+
+.photo-form {
+  position: absolute;
+  top: 25%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Margins */
+
+.list-margin {
+  margin-top: 1rem;
+}
+
+.margin-top-1rem {
+  margin-top: 1rem;
+}
+
+.margin-top-2rem {
+  margin-top: 2rem;
+}
+
+.save-button-margin {
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.alert-button-margin {
+  margin-top: 1.5rem;
+  margin-left: 0;
+}
+
+.padding-left-1rem {
+  padding-left: 1rem;
+}
+
+.list-padding {
+  padding: 0.5rem;
+}
+
+/* Misc  */
 
 .width-50 {
   width: 50%;
@@ -30,21 +164,8 @@ button {
   text-align: left;
 }
 
-input {
-  width: 60px;
-}
-
 .align-right {
   text-align: right;
-}
-
-.font-regular {
-  font-family: 'Nunito Sans', sans-serif;
-}
-
-.font-heavy {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 900;
 }
 
 .nav-a {
@@ -60,59 +181,15 @@ input {
   transition: 0.5s;
 }
 
-.blue-text {
-  color: #0d3b66;
-}
-
-td {
-  padding-right: 0.5rem;
-}
-
 .save-button {
   background-color: #bad2ed;
   border: 0;
   padding: 0.3rem 1rem;
 }
 
-.save-button-margin {
-  margin-top: 1.5rem;
-  margin-left: 0.5rem;
-}
-
-.alert-button-margin {
-  margin-top: 1.5rem;
-  margin-left: 0;
-}
-
 .route-check-boxes {
   margin-top: 1rem;
   margin-left: 0.7rem;
-}
-
-.box-padding {
-  padding: 0.5rem;
-}
-
-.vehicle-info {
-  width: 80%;
-}
-
-.vehicle-info-edit {
-  width: 80%;
-}
-
-.one-third {
-  width: 22%;
-}
-
-.two-third {
-  width: 56%;
-  padding: 1rem;
-}
-
-.nav-box {
-  width: 8rem;
-  height: 12rem;
 }
 
 .nav-item {
@@ -132,11 +209,6 @@ td {
   width: 400px;
 }
 
-.check-box {
-  margin: 0;
-  width: 10px;
-}
-
 .route-alert-div {
   width: 15rem;
 }
@@ -147,36 +219,8 @@ td {
   margin-right: auto;
 }
 
-.driver-p {
-  margin: 0.3rem 0;
-}
-
-.center-vertical {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.vehicle-photo-div {
-  background-color: lightgray;
-  width: 10rem;
-  height: 10rem;
-}
-
-.photo-margin-div {
-  padding-top: 20%;
-  position: relative;
-}
-
 .photo-button-div {
   padding: 0.5rem;
-}
-
-input[type="file"] {
-  display: none;
 }
 
 .photo-label {
@@ -190,60 +234,44 @@ input[type="file"] {
   margin-top: 1rem;
 }
 
-.driver-info-edit {
-  margin-top: 1rem;
-}
-
 .list-map-div {
   height: 200px;
   width: 110%;
   margin-top: 10rem;
 }
 
-.list-margin {
-  margin-top: 1rem;
+
+/* Loading spinners  */
+.lds-circle {
+  transform: translateZ(1px);
 }
 
-.margin-top-1rem {
-  margin-top: 1rem;
+.lds-circle > div {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #c3bef7;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-.margin-top-2rem {
-  margin-top: 2rem;
-}
+@keyframes lds-circle {
+  0%,
+  100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
 
-.padding-left-1rem {
-  padding-left: 1rem;
-}
+  0% {
+    transform: rotateY(0deg);
+  }
 
-.driver-info-margin {
-  margin-top: 1rem;
-}
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
 
-.list-padding {
-  padding: 0.5rem;
-}
-
-img {
-  width: 100%;
-  height: inherit;
-}
-
-.vehicle-photo {
-  object-fit: scale-down;
-}
-
-.photo-form {
-  position: absolute;
-  top: 25%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.vehicle-profile-map {
-  width: 100;
-  height: 100px;
+  100% {
+    transform: rotateY(3600deg);
+  }
 }
 
 
@@ -311,6 +339,14 @@ p {
   .margin-left-offset-1rem-mobile {
     margin-left: 1rem;
   }
+
+  .stop-profile-map-mobile {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -326,6 +362,5 @@ p {
     display: none;
   }
 }
-
 
 /* nav end  */
