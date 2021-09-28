@@ -42,7 +42,7 @@ export default class TripsList extends React.Component {
           {this.state.stopsList.map(stop =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}
-              key={stop.stopId} id={stop.stopId} className="box-two-thirds  font-regular blue-text list-margin list-padding"
+              key={stop.stopId} id={stop.stopId} className="box-two-thirds  vehicle-list-item font-regular blue-text list-margin list-padding "
             >
 
               <a href={'#stopprofile?stopId=' + stop.stopId} className="nav-a">

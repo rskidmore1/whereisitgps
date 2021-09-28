@@ -34,7 +34,7 @@ export default class StopProfile extends React.Component {
 
           <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
 
-            <div className=" driver-info-edit font-regular blue-text ">
+            <div className=" margin-top-1rem font-regular blue-text ">
 
                 <div className="row driver-info-row " >
                   <div className="width-50 vehicle-info-col">
@@ -42,11 +42,12 @@ export default class StopProfile extends React.Component {
                       <tbody>
                         <tr>
                           <td>Stop Location: </td>
-                        <td>{JSON.stringify(stopLocation)}</td>
+                        <td> {'Lat: ' + JSON.stringify(stopLocation.lat)}<br></br>{'Lng: ' + JSON.stringify(stopLocation.lng)}</td>
+
                         </tr>
                         <tr>
                           <td>Vehicle: </td>
-                          <td>truck{vehicleId} </td>
+                          <td>Truck{vehicleId} </td>
                         </tr>
                         <tr>
                           <td>Duration: </td>
@@ -63,7 +64,9 @@ export default class StopProfile extends React.Component {
           </div>
       </div>
       <div className="one-third ">
+        <div className="stop-profile-map-mobile ">
           <MapList coords={this.state.stop.stopLocation} />
+        </div>
 
         </div>
 

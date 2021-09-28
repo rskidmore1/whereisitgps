@@ -11,6 +11,7 @@ class LiveMap extends React.Component {
       demoRoutes: [],
       demoRoutesMaxCount: 0,
       demoCount: 0,
+      isLoaded: false,
       mapCenter: {
         lat: 33.91696347,
         lng: -117.88405129
@@ -91,7 +92,7 @@ class LiveMap extends React.Component {
           demoRoutesArr.push(routesArr);
           routesArr = [];
         }
-        this.setState({ demoRoutes: demoRoutesArr });
+        this.setState({ demoRoutes: demoRoutesArr, isLoaded: true });
       })
       .catch(err => {
         console.error(err);
@@ -127,7 +128,7 @@ class LiveMap extends React.Component {
       if (demoCount === demoRoutesMaxCount) {
         this.setState({ demoCount: 0 });
       }
-    }, 500
+    }, 2000
     );
 
   }
@@ -144,12 +145,14 @@ class LiveMap extends React.Component {
       width: '100%',
       height: '100%'
     };
-    // console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
     return (
       <div className="two-third">
 
         <div className="map-div">
+          <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
+            <div ></div>
+          </div>
           <Map
 
             google={this.props.google}
@@ -169,6 +172,7 @@ class LiveMap extends React.Component {
               />
             )}
         </Map >
+        <p>hello</p>
         </div>
 
       </div>
