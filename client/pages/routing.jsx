@@ -89,7 +89,7 @@ class Routing extends React.Component {
           <p className="blue-text font-regular">Vehicle: {this.state.vehicle.name}</p>
         </div>
 
-        <div className="map-div margin-top-1rem margin-left-offset-mobile">
+        <div className="map-div margin-top-1rem margin-left-map-mobile">
           <Map
             google={this.props.google}
                 containerStyle={containerStyle}
