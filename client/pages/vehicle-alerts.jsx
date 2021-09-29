@@ -3,7 +3,7 @@ import React from 'react';
 export default class VehicleAlerts extends React.Component {
   constructor(props) {
     super(props);
-    const vId = 2;// Replace this when creating vehicle list feature
+    const vId = 2;
     this.state = { vehicle: {}, vehicleId: vId, demoVehicle: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.sendText = this.sendText.bind(this);
@@ -57,9 +57,6 @@ export default class VehicleAlerts extends React.Component {
           const text = { toNumber: '+19492664664', message: message };
           this.sendText(text);
         }
-      }
-      if (alert.emailAlert) {
-        // email alert code goes here. -make function
       }
 
     }

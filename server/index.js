@@ -96,7 +96,7 @@ app.get('/api/vehicleslist', (req, res, next) => {
       const vehicles = results.rows;
       if (!vehicles) {
 
-        throw new ClientError(404, 'cannot find vehicles'); // This is returning html to instead json message to httpie
+        throw new ClientError(404, 'cannot find vehicles');
       } else {
 
         res.json(vehicles);
@@ -125,7 +125,7 @@ app.get('/api/vehicleinfo/:vehicleId', (req, res, next) => {
       const [vehicle] = results.rows;
       if (!vehicle) {
 
-        throw new ClientError(404, `cannot find vehicleId ${vehicleId}`); // This is returning html to instead json message to httpie
+        throw new ClientError(404, `cannot find vehicleId ${vehicleId}`);
       } else {
 
         res.json(vehicle);
@@ -189,7 +189,7 @@ app.get('/api/driverinfo/:driverId', (req, res, next) => {
       const [driver] = results.rows;
       if (!driver) {
 
-        throw new ClientError(404, `cannot find driverId ${driverId}`); // This is returning html to instead json message to httpie
+        throw new ClientError(404, `cannot find driverId ${driverId}`);
       } else {
 
         res.json(driver);
@@ -212,7 +212,7 @@ app.post('/api/driverinfo', (req, res, next) => {
     insert into "drivers" ("name", "phone", "email", "vehicleId", "createdAt")
         values ($1, $2, $3, 2, now())
         returning *
-  `; // Enter vehicle ID from vehicle profile
+  `;
 
   const params = [name, phone, email];
 
@@ -250,7 +250,7 @@ app.get('/api/user/:userId', (req, res, next) => {
       const [record] = results.rows;
       if (!record) {
 
-        throw new ClientError(404, `cannot find driverId ${userId}`); // This is returning html to instead json message to httpie
+        throw new ClientError(404, `cannot find driverId ${userId}`);
       } else {
 
         res.json(record);
@@ -314,7 +314,7 @@ app.get('/api/stopslist', (req, res, next) => {
       const stops = results.rows;
       if (!stops) {
 
-        throw new ClientError(404, 'cannot find stops'); // This is returning html to instead json message to httpie
+        throw new ClientError(404, 'cannot find stops');
       } else {
 
         res.json(stops);
@@ -340,7 +340,7 @@ app.get('/api/stop/:stopId', (req, res, next) => {
       const [record] = results.rows;
       if (!record) {
 
-        throw new ClientError(404, `cannot find recordId ${stopId}`); // This is returning html to instead json message to httpie
+        throw new ClientError(404, `cannot find recordId ${stopId}`);
       } else {
 
         res.json(record);
@@ -366,7 +366,7 @@ app.post('/api/sendtext', (req, res, next) => {
       select "phone", "email"
         from "users"
         where "userId" = 1
-    `;// -replace userId with global thing
+    `;
 
   db.query(sql)
     .then(result => {

@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const imagesDirectory = path.join(__dirname, 'public/images');
 
-const storage = multer.diskStorage({ // The core of the lesson
+const storage = multer.diskStorage({
   destination(req, file, callback) {
     callback(null, imagesDirectory);
   },

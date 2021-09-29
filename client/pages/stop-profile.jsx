@@ -45,9 +45,9 @@ export default class StopProfile extends React.Component {
           </div>
           <p>{this.state.networkError}</p>
 
-          <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
+          <div className=" blue-box  box-padding blue-text rounted-box driver-info-margin">
 
-            <div className=" margin-top-1rem font-regular blue-text ">
+            <div className=" margin-top-1rem  blue-text ">
 
                 <div className="row driver-info-row " >
                   <div className="width-50 vehicle-info-col">

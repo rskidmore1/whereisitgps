@@ -41,7 +41,7 @@ export default class VehicleInfo extends React.Component {
     return (
       <React.Fragment>
 
-        <div className="box-two-thirds box-padding rounted-box vehicle-info-edit font-regular blue-text vehicle-info-desktop">
+        <div className="box-two-thirds box-padding rounted-box vehicle-info-edit  blue-text vehicle-info-desktop">
           <form onSubmit={this.handleSubmit}>
 
             <div className="row vehicle-info-row box-padding" >
@@ -87,7 +87,7 @@ export default class VehicleInfo extends React.Component {
             </div>
 
             <div className='align-right'>
-              <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Save</button>
+              <button className="save-button rounded-button blue-text" type="submit" value="Submit">Save</button>
             </div>
 
           </form>

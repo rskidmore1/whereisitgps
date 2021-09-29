@@ -32,7 +32,6 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      // this.setState({ mobileTitle: 'Live Map' });
 
       return <LiveMap />;
     }
