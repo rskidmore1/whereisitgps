@@ -328,6 +328,10 @@ p {
     display: none;
   }
 
+  .live-map-mobile-offset {
+    margin-top: 1.5rem;
+  }
+
   .driver-info-edit {
     display: none;
   }

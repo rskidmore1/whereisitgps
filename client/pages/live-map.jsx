@@ -154,7 +154,7 @@ class LiveMap extends React.Component {
     return (
       <div className="two-third">
 
-        <div className="map-div">
+        <div className="map-div live-map-mobile-offset">
           <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
             <div ></div>
           </div>
