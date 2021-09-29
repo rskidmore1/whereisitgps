@@ -106,10 +106,9 @@ class LiveMap extends React.Component {
   }
 
   startVehicleUpdates() {
-    let demoCount = this.state.demoCount;
 
     setInterval(() => {
-
+      let demoCount = this.state.demoCount;
       demoCount++;
       this.setState({ demoCount: demoCount });
       const demoRoutesMaxCount = this.state.demoRoutesMaxCount;
@@ -119,20 +118,20 @@ class LiveMap extends React.Component {
         let timeStamp = vehicle.movedAt;
         let stopped = vehicle.stopped;
 
+        if (demoCount >= demoRoutesMaxCount) {
+          this.setState({ demoCount: 0 });
+        }
+
         if (vehicle.coords.lat !== this.state.demoRoutes[index][demoCount].lat && vehicle.coords.lng !== this.state.demoRoutes[index][demoCount].lon) {
           stopped = false;
           timeStamp = Date.now();
         } else if (timeStamp + 1000 <= Date.now()) {
           stopped = true;
         }
-
         return Object.assign({}, vehicle, { coords: { lat: this.state.demoRoutes[index][demoCount].lat, lng: this.state.demoRoutes[index][demoCount].lon }, movedAt: timeStamp, stopped: stopped });
       });
       this.setState({ vehicles: updatedVehicles });
 
-      if (demoCount === demoRoutesMaxCount) {
-        this.setState({ demoCount: 0 });
-      }
     }, 2000
     );
 
