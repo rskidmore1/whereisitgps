@@ -55,7 +55,7 @@ export default class StopProfile extends React.Component {
                       <tbody>
                         <tr>
                           <td>Stop Location: </td>
-                        <td> {'Lat: ' + JSON.stringify(stopLocation.lat)}<br></br>{'Lng: ' + JSON.stringify(stopLocation.lng)}</td>
+                        <td> {'Lat: ' + JSON.stringify(stopLocation.lat)} deg<br></br>{'Lng: ' + JSON.stringify(stopLocation.lng)} deg</td>
 
                         </tr>
                         <tr>

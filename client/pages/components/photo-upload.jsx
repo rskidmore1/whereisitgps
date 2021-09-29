@@ -22,6 +22,7 @@ export default class PhotoUpload extends React.Component {
   handlePhoto(event) {
 
     const formData = new FormData(event.target);
+
     this.setState({ uploadPhoto: false });
 
     fetch(`/api/vehiclephoto/${this.props.vehicleId}`, {
@@ -49,7 +50,7 @@ export default class PhotoUpload extends React.Component {
             <form className={this.state.uploadPhoto ? 'photo-form' : 'hidden photo-form'} onSubmit={this.handlePhoto}>
 
               <div className="column-full photo-button-div">
-                <label className="photo-label save-button rounded-button font-regular blue-text center"><input required type="file" name="image" />Upload</label>
+                <label className="photo-label save-button rounded-button font-regular blue-text center"><input type="file" name="image" />Upload</label>
 
                 <button className="save-button rounded-button font-regular blue-text center "
                   type="submit" >Save</button>

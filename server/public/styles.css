@@ -291,7 +291,7 @@ i {
 }
 
 .nav-div {
-  width: 100px;
+  width: 110px;
   background-color: white;
   border: 0;
   height: 100vh;
@@ -305,8 +305,8 @@ p {
 
 @media screen and (max-width: 767px) {
   .map-div {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     padding: 0.5rem;
   }
 
@@ -339,6 +339,10 @@ p {
 
   .margin-left-offset-mobile {
     margin-left: 2rem;
+  }
+
+  .margin-left-map-mobile {
+    margin-left: 2.7rem;
   }
 
   .margin-left-offset-1rem-mobile {
