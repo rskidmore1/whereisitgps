@@ -47,6 +47,10 @@ input {
   font-weight: 900;
 }
 
+.font-small {
+  font-size: smaller;
+}
+
 .nav-a {
   text-decoration: none;
 }
