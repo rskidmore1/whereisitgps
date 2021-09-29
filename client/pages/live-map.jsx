@@ -9,6 +9,7 @@ class LiveMap extends React.Component {
 
     this.state = {
       demoRoutes: [],
+      timerId: 0,
       demoRoutesMaxCount: 0,
       demoCount: 0,
       isLoaded: false,
@@ -107,10 +108,11 @@ class LiveMap extends React.Component {
 
   startVehicleUpdates() {
 
-    setInterval(() => {
+    const timerId = setInterval(() => {
       let demoCount = this.state.demoCount;
       demoCount++;
       this.setState({ demoCount: demoCount });
+      this.setState({ timerId: timerId });
       const demoRoutesMaxCount = this.state.demoRoutesMaxCount;
 
       const updatedVehicles = this.state.vehicles.map((vehicle, index) => {
@@ -140,6 +142,11 @@ class LiveMap extends React.Component {
   componentDidMount() {
 
     this.startVehicleUpdates();
+  }
+
+  componentWillUnmount() {
+    const timerId = clearInterval(this.state.timerId);
+    this.setState({ timerId: timerId });
   }
 
   render() {
