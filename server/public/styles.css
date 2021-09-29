@@ -305,8 +305,8 @@ p {
 
 @media screen and (max-width: 767px) {
   .map-div {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     padding: 0.5rem;
   }
 

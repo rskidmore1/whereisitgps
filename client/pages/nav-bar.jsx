@@ -58,12 +58,14 @@ export class Drawer extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+  toggle(e) {
+
     if (this.state.isOpen) {
       this.setState({ isOpen: false });
     } else {
       this.setState({ isOpen: true });
     }
+
   }
 
   render() {

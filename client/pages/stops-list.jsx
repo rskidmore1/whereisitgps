@@ -61,10 +61,10 @@ export default class TripsList extends React.Component {
                   <tbody>
                     <tr>
                       <td className=" blue-text">Stop location:</td>
-                      <td className=" blue-text">lat: {stop.stopLocation.lat} <br></br> lng: {stop.stopLocation.lng}  </td>
+                      <td className=" blue-text">lat: {stop.stopLocation.lat} deg<br></br> lng: {stop.stopLocation.lng} deg </td>
                     </tr>
                     <tr>
-                      <td className=" blue-text">vehicle: </td>
+                      <td className=" blue-text">Vehicle: </td>
                       <td className=" blue-text">Truck{stop.vehicleId}</td>
 
                     </tr>
