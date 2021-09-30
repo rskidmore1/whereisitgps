@@ -4,6 +4,7 @@
 }
 
 .alerts-box {
+  padding: 1rem;
   background-color: #e5ecf4;
   width: 350px;
 }
@@ -110,9 +111,27 @@ td {
   margin-left: 0.5rem;
 }
 
-.alert-button-margin {
-  margin-top: 1.5rem;
-  margin-left: 0;
+.speed-input {
+  padding: 0.2rem 0;
+  width: 99%;
+}
+
+.speed-div {
+  width: 80%;
+}
+
+.update-div {
+  width: 18%;
+}
+
+.update-button {
+  background-color: #bad2ed;
+  border: 0;
+  padding: 0.3rem 1rem;
+}
+
+.alert-button-div-mobile {
+  width: 80%;
 }
 
 .route-check-boxes {
@@ -422,6 +441,10 @@ p {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .alert-button-div {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -434,6 +457,10 @@ p {
   }
 
   .mobile-bar {
+    display: none;
+  }
+
+  .alert-button-div-mobile {
     display: none;
   }
 }

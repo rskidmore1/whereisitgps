@@ -68,56 +68,44 @@ export default class VehicleAlerts extends React.Component {
 
   render() {
 
-    const { speedingThreshold, speedAlert, brakeAlert, accelerationAlert, textAlert, emailAlert } = this.state.vehicle;
+    const { speedingThreshold } = this.state.vehicle;
     return (
       <div className="two-third">
-        <div className="alerts-box font-regular blue-text box-padding rounted-box margin-top-2rem center-mobile">
-          <form onSubmit={this.handleSubmit}>
-            <div className="row vehicle-info-row box-padding center-mobile">
+        <div className="center">
+          <div className="alert-button-div-mobile  center">
 
-              <div className="50-width alerts-col ">
-                  <table>
-                    <tbody>
-                      <tr>
-                      <td><input className="check-box" type="checkbox" defaultChecked={speedAlert}></input></td>
-                      <td><label>Speed </label><input type="text" defaultValue={speedingThreshold}></input><label> mph</label></td>
-                      </tr>
-                      <tr>
-                      <td><input className="check-box" type="checkbox" defaultChecked={brakeAlert} ></input></td>
-                      <td><label>Hard Braking</label></td>
-                      </tr>
-                      <tr>
-                      <td><input className="check-box" type="checkbox" defaultChecked={accelerationAlert}></input></td>
-                      <td><label>Hard Acceleration</label></td>
-                      </tr>
-                      <tr></tr>
-                    <tr></tr>
-                    </tbody>
-                  </table>
+            <form onSubmit={this.handleSubmit}>
+              <div className="row " >
+
+                <div className=" speed-div ">
+                    <input className='speed-input' type="text" defaultValue={speedingThreshold} placeholder="MPH"></input>
+                  </div>
+
+                <div className=' update-div'>
+                    <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Update</button>
+                  </div>
+
                 </div>
-
-              <div className="50-width alerts-col">
-                  <table>
-                    <tbody>
-                    <tr>
-                      <td><input className="check-box" type="checkbox" defaultChecked={textAlert}></input></td>
-                      <td><label>Text</label></td>
-                    </tr>
-                    <tr>
-                      <td><input className="check-box" type="checkbox" defaultChecked={emailAlert}></input></td>
-                      <td><label>Email</label></td>
-                    </tr>
-
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-            <div className='align-right'>
-              <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Save</button>
+              </form>
             </div>
 
-         </form>
-        </div >
+          <div className="alert-button-div  blue-box alerts-box list-margin ">
+
+            <form onSubmit={this.handleSubmit}>
+              <div className="" >
+
+                <div className=" speed-div ">
+                  <input className='speed-input' type="text" defaultValue={speedingThreshold} placeholder="MPH"></input>
+                </div>
+
+                <div className=' update-div'>
+                  <button className="save-button rounded-button font-regular blue-text list-margin " type="submit" value="Submit">Update</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
 
       </div>
     );
