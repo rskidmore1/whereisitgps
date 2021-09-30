@@ -5,7 +5,13 @@ export default class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user: {
+        username: '',
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: ''
+      },
       userId: 1,
       isLoaded: false,
       networkError: ''
@@ -68,15 +74,15 @@ export default class Settings extends React.Component {
                     <tbody>
                       <tr>
                         <td><label>Username:</label></td>
-                        <td><input type="text" value={username}/></td>
+                          <td><input type="text" defaultValue={username}/></td>
                       </tr>
                       <tr>
                         <td><label>First Name:</label></td>
-                        <td><input type="text" value={firstname}/></td>
+                          <td><input type="text" defaultValue={firstname}/></td>
                       </tr>
                       <tr>
                         <td><label>Last Name:</label></td>
-                        <td><input type="text" value={lastname}/></td>
+                          <td><input type="text" defaultValue={lastname}/></td>
                       </tr>
                       <tr>
                         <td><label>Phone:</label></td>
@@ -84,7 +90,7 @@ export default class Settings extends React.Component {
                       </tr>
                       <tr>
                         <td><label>Email:</label></td>
-                        <td><input type="text" value={email}/></td>
+                          <td><input type="text" defaultValue={email}/></td>
                       </tr>
 
                   </tbody>
