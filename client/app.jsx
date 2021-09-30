@@ -10,6 +10,7 @@ import MobileBar from './pages/components/mobile-bar';
 import Settings from './pages/settings';
 import StopsList from './pages/stops-list';
 import StopProfile from './pages/stop-profile';
+import MobileNavBar from './pages/components/mobile-nav';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,6 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-
       return <LiveMap />;
     }
 
@@ -86,13 +86,17 @@ export default class App extends React.Component {
       <>
       <div className="container">
         <div className="center">
+          <MobileNavBar />
           <MobileBar title={title} />
         </div>
           <div className="row">
             <div className="one-third border">
+
               <NavBar />
             </div>
+
             { this.renderPage() }
+
         </div>
       </div>
       </>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class NavBar extends React.Component {
+export default class MobileNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,29 +18,14 @@ export default class NavBar extends React.Component {
   render() {
 
     return (
-      <div>
+      <React.Fragment>
 
-          <div className="nav-box purple rounted-box">
-            <nav>
-              <ul className="nav-ul font-heavy">
-                <li className="nav-item">
-                <a id="livemap" className={this.state.openIndex === 'livemap' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#" onClick={this.handleClick}>Live Map</a>
-                </li >
-                <li className="nav-item">
-                <a id="vehicle-list" className={this.state.openIndex === 'vehicle-list' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#vehicle-list" onClick={this.handleClick}>Vehicles</a>
-                </li>
-                <li className="nav-item">
-                  <a id="stops" className={this.state.openIndex === 'stops' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#stops" onClick={this.handleClick}>Stops</a>
-                </li>
-                <li className="nav-item">
-                  <a id="settings" className={this.state.openIndex === 'settings' ? 'nav-a nav-color live-page' : 'nav-a nav-color'} href="#settings" onClick={this.handleClick}>Settings</a>
-                </li>
-              </ul>
+        <div className="nav-mobile">
 
-            </nav>
-          </div>
+          <Drawer />
 
-      </div>
+        </div>
+      </React.Fragment>
     );
   }
 }
@@ -68,12 +53,17 @@ export class Drawer extends React.Component {
 
       <React.Fragment>
 
-      <div className="banner purple"></div>
-        <div className="">
+        <div className="banner purple">
 
-          <i className="fas fa-bars" onClick={this.toggle}></i>
+            <div className="hamburger-col">
+              <i className="fas fa-bars" onClick={this.toggle}></i>
+            </div>
+            <div className="title-col center ">
+              <h2 className="title-text center ">Whereisit</h2>
+            </div>
 
         </div>
+
         <div className={this.state.isOpen ? 'nav-div ' : 'nav-div hidden'}>
           <h2 className="font-heavy blue-text" onClick={this.toggle}>Navigate</h2>
           <div>
