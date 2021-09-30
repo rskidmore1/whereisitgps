@@ -21,7 +21,7 @@ class MapList extends React.Component {
     return (
 
      <React.Fragment>
-        <div className="list-map-div center">
+        <div className="list-map-div ">
           <Map
 
             google={this.props.google}

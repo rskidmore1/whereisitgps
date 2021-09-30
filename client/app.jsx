@@ -88,9 +88,10 @@ export default class App extends React.Component {
 
     return (
       <>
+        <MobileNavBar />
       <div className="container">
         <div className="center">
-          <MobileNavBar />
+
           <MobileBar title={title} />
         </div>
           <div className="row">

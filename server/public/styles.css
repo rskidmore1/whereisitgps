@@ -31,13 +31,14 @@ button {
 
 .title-text {
   text-align: center;
+  margin: 0;
 }
 
 .banner {
   width: 100%;
   height: 30px;
   position: relative;
-  margin-top: -1rem;
+  margin-top: 0;
 }
 
 .hamburger-col {
@@ -259,10 +260,15 @@ input[type="file"] {
   margin-top: 1rem;
 }
 
+.mobile-alerts {
+  margin-top: 5rem;
+  width: 80%;
+}
+
 .list-map-div {
   height: 200px;
-  width: 110%;
-  margin-top: 10rem;
+  width: 100%;
+  margin-top: 6rem;
 }
 
 .list-margin {
@@ -292,10 +298,6 @@ input[type="file"] {
 img {
   width: 100%;
   height: inherit;
-}
-
-.mobile-alerts {
-  width: 80%;
 }
 
 .vehicle-photo {
@@ -352,7 +354,8 @@ img {
 /* Mobile styling */
 .mobile-title {
   text-align: center;
-  padding: 0.5rem;
+
+  /* padding: 0.5rem; */
 }
 
 i {
@@ -397,7 +400,7 @@ p {
   }
 
   .vehicle-list-item {
-    width: 99%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -435,7 +438,7 @@ p {
   }
 
   .stop-profile-map-mobile {
-    width: 200px;
+    width: 90%;
     height: 200px;
     display: block;
     margin-left: auto;
@@ -444,6 +447,15 @@ p {
 
   .alert-button-div {
     display: none;
+  }
+
+  .list-map-div {
+    margin-top: 1rem;
+  }
+
+  .stop-profile-map-div {
+    height: 250px;
+    margin-top: 0;
   }
 }
 
@@ -461,6 +473,10 @@ p {
   }
 
   .alert-button-div-mobile {
+    display: none;
+  }
+
+  .mobile-alerts {
     display: none;
   }
 }

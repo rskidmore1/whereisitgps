@@ -45,43 +45,46 @@ export default class StopProfile extends React.Component {
           </div>
           <p>{this.state.networkError}</p>
 
-          <div className=" blue-box  box-padding blue-text rounted-box driver-info-margin">
+          <div className="box-two-thirds  vehicle-list-item  blue-text list-margin list-padding " >
 
-            <div className=" margin-top-1rem  blue-text ">
+              <table>
+                <tbody>
 
-                <div className="row driver-info-row " >
-                  <div className="width-50 vehicle-info-col">
-                    <table>
-                      <tbody>
-                        <tr>
-                          <td>Stop Location: </td>
-                        <td> {'Lat: ' + JSON.stringify(stopLocation.lat)} deg<br></br>{'Lng: ' + JSON.stringify(stopLocation.lng)} deg</td>
+                  <tr>
+                    <td className=" blue-text font-heavy list-item-right-padding">Vehicle: </td>
+                    <td className=" blue-text list-bottom-padding">Truck{vehicleId}</td>
 
-                        </tr>
-                        <tr>
-                          <td>Vehicle: </td>
-                          <td>Truck{vehicleId} </td>
-                        </tr>
-                        <tr>
-                          <td>Duration: </td>
-                        <td>{((new Date(beginTime).getTime() - new Date(endTime).getTime()) / 1000) / 60} minutes</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  </tr>
+                  <tr>
+                    <td className=" blue-text font-heavy list-item-right-padding">Duration: </td>
+                    <td className=" blue-text list-bottom-padding">{((new Date(beginTime).getTime() - new Date(endTime).getTime()) / 1000) / 60} minutes</td>
 
-                  </div>
+                  </tr>
+                  <tr>
+                    <td className=" blue-text font-heavy list-item-right-padding">Address:</td>
+                  </tr>
 
-                </div>
+                </tbody>
 
-            </div>
+              </table>
+              <table>
+                <tbody>
+                  <tr>
+                    <td className=" blue-text ">lat: {stopLocation.lat}&deg; lng: {stopLocation.lng} &deg; </td>
+                  </tr>
+                </tbody>
+              </table>
+
           </div>
+
       </div>
-      <div className="one-third ">
-        <div className="stop-profile-map-mobile ">
+      <div className="one-third stop-profile-map-div">
+
+        <div className="stop-profile-map-mobile center">
           <MapList coords={this.state.stop.stopLocation} />
         </div>
 
-        </div>
+      </div>
 
       </React.Fragment>
     );
