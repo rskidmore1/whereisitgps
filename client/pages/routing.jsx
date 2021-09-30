@@ -1,7 +1,7 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
+import RoutingMap from './components/routing-map';
 
-class Routing extends React.Component {
+export default class Routing extends React.Component {
 
   constructor(props) {
     super(props);
@@ -76,80 +76,14 @@ class Routing extends React.Component {
 
   render() {
 
-    const containerStyle = {
-      position: 'relative',
-      width: '100%',
-      height: '100%'
-    };
-
     return (
-      <div>
+      <div className="two-third">
+        <div className="center">
 
-        <div className="blue-box rounted-box margin-top-2rem center-mobile margin-left-offset-mobile">
-          <p className="blue-text font-regular">Vehicle: {this.state.vehicle.name}</p>
-        </div>
-
-        <div className="map-div margin-top-1rem margin-left-map-mobile">
-          <Map
-            google={this.props.google}
-                containerStyle={containerStyle}
-            initialCenter={this.state.vehicleLocation}
-            zoom={10}
-            mapTypeControl={false}
-            scaleControl={false}
-
-            zoomControl={false}
-            fullscreenControl={false}
-
-            onClick={this.onMapClicked}>
-
-            {
-              this.state.route.map(item =>
-
-                <InfoWindow key={item.counter} position={{ lat: item.coords.lat, lng: item.coords.lng }} visible={true}>
-                  <div className="blue-text">
-                      <p>Stop {item.counter}</p>
-                    </div>
-                  </InfoWindow>
-
-              )}
-
-          </Map >
-        </div>
-
-        <div className=' route-alert-div  blue-box rounted-box margin-top-1rem margin-left-offset-1rem-mobile box-padding '>
-          <div className="row center ">
-
-            <div className="">
-              <button className="save-button blue-text  " onClick={this.sendText} >Send</button>
-
-            </div>
-
-            <div className="">
-              <table className="route-check-boxes">
-                <tbody>
-                  <tr>
-                    <td><input className="check-box" type="checkbox"></input></td>
-                    <td> <label>Text</label></td>
-                  </tr>
-                  <tr>
-                    <td><input className="check-box" type="checkbox"></input></td>
-                    <td> <label>Email</label></td>
-                  </tr>
-                </tbody>
-              </table>
-
-            </div>
-            <a href={this.state.link}>{this.state.link}</a>
-          </div>
+          <RoutingMap vehicleLocation={this.state.vehicleLocation} />
         </div>
 
       </div>
     );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: (process.env.GOOGLE_MAPS_TOKEN)
-
-})(Routing);

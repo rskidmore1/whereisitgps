@@ -175,7 +175,7 @@ td {
   width: 10px;
 }
 
-.route-alert-div {
+.route-button {
   width: 15rem;
 }
 
@@ -233,6 +233,10 @@ input[type="file"] {
 }
 
 .driver-info-mobile {
+  margin-top: 1rem;
+}
+
+.send-button-margin-top {
   margin-top: 1rem;
 }
 
