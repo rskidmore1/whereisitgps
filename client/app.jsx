@@ -80,6 +80,10 @@ export default class App extends React.Component {
       title = 'Vehicle';
     } else if (this.state.route.path === 'settings') {
       title = 'Settings';
+    } else if (this.state.route.path === 'stops') {
+      title = 'Stops';
+    } else if (this.state.route.path === 'stopprofile') {
+      title = 'Stop Details';
     }
 
     return (
