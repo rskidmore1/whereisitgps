@@ -57,6 +57,10 @@ input {
   text-align: right;
 }
 
+.float-right {
+  margin-left: 70%;
+}
+
 .font-regular {
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -91,6 +95,10 @@ td {
   padding-right: 0.5rem;
 }
 
+.list-bottom-padding {
+  padding-bottom: 1rem;
+}
+
 .save-button {
   background-color: #bad2ed;
   border: 0;
@@ -116,6 +124,10 @@ td {
   padding: 0.5rem;
 }
 
+.list-item-right-padding {
+  padding-right: 3rem;
+}
+
 .vehicle-info {
   width: 80%;
 }
@@ -130,7 +142,10 @@ td {
 
 .two-third {
   width: 56%;
-  padding: 1rem;
+}
+
+.vehicle-info-margin {
+  margin: 0;
 }
 
 .nav-box {
@@ -217,6 +232,10 @@ input[type="file"] {
   margin-top: 1rem;
 }
 
+.driver-info-mobile {
+  margin-top: 1rem;
+}
+
 .list-map-div {
   height: 200px;
   width: 110%;
@@ -250,6 +269,10 @@ input[type="file"] {
 img {
   width: 100%;
   height: inherit;
+}
+
+.mobile-alerts {
+  width: 60%;
 }
 
 .vehicle-photo {
@@ -332,12 +355,10 @@ p {
     width: 99%;
     height: 250px;
     padding: 0.5rem;
+  }
 
-    /* display: block; */
-
-    /* margin-left: 3rem; */
-
-    /* margin-right: auto; */
+  .vehicle-photo-div {
+    display: none;
   }
 
   .mobile-bar {
@@ -353,7 +374,7 @@ p {
   }
 
   .vehicle-list-item {
-    width: 240px;
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -367,6 +388,7 @@ p {
   }
 
   .route-alert-box {
+    display: none;
     margin-left: auto;
     margin-right: auto;
   }

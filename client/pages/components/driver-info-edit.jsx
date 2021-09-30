@@ -22,9 +22,9 @@ export default function DriverInfoEdit() {
 
   return (
 
-    <div className=" blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
+    <div className=" driver-info-edit blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
 
-      <div className=" driver-info-edit font-regular blue-text ">
+      <div className="  font-regular blue-text ">
         <form onSubmit={handleSubmit}>
 
           <div className="row driver-info-row " >

@@ -57,24 +57,28 @@ export default class VehicleList extends React.Component {
           {this.state.vehiclesList.map(vehicle =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}
-              key={vehicle.vehicleId} id={vehicle.vehicleId} className="vehicle-list-item box-two-thirds  blue-text list-margin list-padding"
+              key={vehicle.vehicleId} id={vehicle.vehicleId} className="vehicle-list-item box-two-thirds blue-text list-margin list-padding "
             >
 
-              <a href={'#vehicleprofile?vehicleId=' + vehicle.vehicleId} className="nav-a">
+              <a href={'#vehicleprofile?vehicleId=' + vehicle.vehicleId} className="nav-a row">
+
               <table>
                 <tbody>
-                  <tr>
-                    <td className=" blue-text">Name:</td>
-                    <td className=" blue-text">{vehicle.name} </td>
+                  <tr >
+                      <td className=" blue-text font-heavy list-bottom-padding list-item-right-padding">Vehicle Name</td>
+                      <td className=" blue-text list-bottom-padding">{vehicle.name} </td>
                   </tr>
-                  <tr>
-                    <td className=" blue-text">Make: </td>
-                    <td className=" blue-text">{vehicle.make}</td>
-                    <td className=" blue-text"> Model:</td>
-                    <td className=" blue-text">{vehicle.model}</td>
-                  </tr>
+                  <tr >
+                      <td className=" blue-text font-heavy list-bottom-padding list-item-right-padding">Make </td>
+                      <td className=" blue-text list-bottom-padding">{vehicle.make}</td>
+                   </tr>
+                   <tr>
+                      <td className=" blue-text font-heavy list-item-right-padding"> Model</td>
+                      <td className=" blue-text">{vehicle.model}</td>
+                   </tr>
                 </tbody>
               </table>
+
               </a>
 
             </div>

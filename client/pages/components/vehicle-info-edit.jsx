@@ -93,8 +93,19 @@ export default class VehicleInfo extends React.Component {
           </form>
         </div>
         <div className="vehicle-info-mobile">
-          <div onClick={this.handleDrawer} className="blue-box">
-            <h2 className="blue-text">Details</h2>
+          <div onClick={this.handleDrawer} className="blue-box row">
+            <div className="width-50">
+
+                <h2 className="blue-text  vehicle-info-margin">Details</h2>
+
+            </div>
+            <div className="width-50 ">
+              <div className="float-right">
+
+                <i className={this.state.drawerOpen ? 'fa fa-chevron-down vehicle-info-margin ' : 'fa fa-chevron-up vehicle-info-margin ' }></i>
+              </div>
+            </div>
+
           </div>
           <div className={this.state.drawerOpen ? 'row' : 'row hidden'}>
             <div className="center">
