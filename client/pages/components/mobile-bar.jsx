@@ -6,8 +6,8 @@ export default class MobileBar extends React.Component {
     const title = this.props.title;
     return (
 
-      <div className="mobile-bar blue-text blue-box rounted-box">
-        <h2 className="mobile-title ">{title}</h2>
+      <div className="mobile-bar blue-text blue-box title-rounded center">
+        <h2 className="mobile-title">{title}</h2>
       </div>
 
     );

@@ -59,19 +59,28 @@ export default class TripsList extends React.Component {
               <a href={'#stopprofile?stopId=' + stop.stopId} className="nav-a">
                 <table>
                   <tbody>
+
                     <tr>
-                      <td className=" blue-text">Stop location:</td>
-                      <td className=" blue-text font-small">lat: {stop.stopLocation.lat}&deg;<br></br> lng: {stop.stopLocation.lng}&deg; </td>
-                    </tr>
-                    <tr>
-                      <td className=" blue-text">Vehicle: </td>
-                      <td className=" blue-text">Truck{stop.vehicleId}</td>
+                      <td className=" blue-text font-heavy list-item-right-padding">Vehicle: </td>
+                      <td className=" blue-text list-bottom-padding">Truck{stop.vehicleId}</td>
 
                     </tr>
                     <tr>
-                      <td className=" blue-text">Duration: </td>
-                      <td className=" blue-text">{((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60 } minutes</td>
+                      <td className=" blue-text font-heavy list-item-right-padding">Duration: </td>
+                      <td className=" blue-text list-bottom-padding">{((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60 } minutes</td>
 
+                    </tr>
+                    <tr>
+                      <td className=" blue-text font-heavy list-item-right-padding">Address:</td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td className=" blue-text ">lat: {stop.stopLocation.lat}&deg; lng: {stop.stopLocation.lng} &deg; </td>
                     </tr>
                   </tbody>
                 </table>

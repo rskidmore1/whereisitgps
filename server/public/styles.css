@@ -4,6 +4,7 @@
 }
 
 .alerts-box {
+  padding: 1rem;
   background-color: #e5ecf4;
   width: 350px;
 }
@@ -20,8 +21,28 @@ button {
   border-radius: 0.25rem;
 }
 
+.title-rounded {
+  border-radius: 1rem;
+}
+
 .width-50 {
   width: 50%;
+}
+
+.title-text {
+  text-align: center;
+  margin: 0;
+}
+
+.banner {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  margin-top: 0;
+}
+
+.hamburger-col {
+  position: absolute;
 }
 
 .nav-ul {
@@ -36,6 +57,10 @@ input {
 
 .align-right {
   text-align: right;
+}
+
+.float-right {
+  margin-left: 70%;
 }
 
 .font-regular {
@@ -72,6 +97,10 @@ td {
   padding-right: 0.5rem;
 }
 
+.list-bottom-padding {
+  padding-bottom: 1rem;
+}
+
 .save-button {
   background-color: #bad2ed;
   border: 0;
@@ -83,9 +112,27 @@ td {
   margin-left: 0.5rem;
 }
 
-.alert-button-margin {
-  margin-top: 1.5rem;
-  margin-left: 0;
+.speed-input {
+  padding: 0.2rem 0;
+  width: 99%;
+}
+
+.speed-div {
+  width: 80%;
+}
+
+.update-div {
+  width: 18%;
+}
+
+.update-button {
+  background-color: #bad2ed;
+  border: 0;
+  padding: 0.3rem 1rem;
+}
+
+.alert-button-div-mobile {
+  width: 80%;
 }
 
 .route-check-boxes {
@@ -95,6 +142,10 @@ td {
 
 .box-padding {
   padding: 0.5rem;
+}
+
+.list-item-right-padding {
+  padding-right: 3rem;
 }
 
 .vehicle-info {
@@ -111,7 +162,10 @@ td {
 
 .two-third {
   width: 56%;
-  padding: 1rem;
+}
+
+.vehicle-info-margin {
+  margin: 0;
 }
 
 .nav-box {
@@ -141,7 +195,7 @@ td {
   width: 10px;
 }
 
-.route-alert-div {
+.route-button {
   width: 15rem;
 }
 
@@ -198,10 +252,23 @@ input[type="file"] {
   margin-top: 1rem;
 }
 
+.driver-info-mobile {
+  margin-top: 1rem;
+}
+
+.send-button-margin-top {
+  margin-top: 1rem;
+}
+
+.mobile-alerts {
+  margin-top: 5rem;
+  width: 80%;
+}
+
 .list-map-div {
   height: 200px;
-  width: 110%;
-  margin-top: 10rem;
+  width: 100%;
+  margin-top: 6rem;
 }
 
 .list-margin {
@@ -287,6 +354,8 @@ img {
 /* Mobile styling */
 .mobile-title {
   text-align: center;
+
+  /* padding: 0.5rem; */
 }
 
 i {
@@ -309,9 +378,17 @@ p {
 
 @media screen and (max-width: 767px) {
   .map-div {
-    width: 250px;
+    width: 99%;
     height: 250px;
     padding: 0.5rem;
+  }
+
+  .vehicle-photo-div {
+    display: none;
+  }
+
+  .mobile-bar {
+    width: 80%;
   }
 
   .one-third {
@@ -323,7 +400,7 @@ p {
   }
 
   .vehicle-list-item {
-    width: 240px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -332,21 +409,24 @@ p {
     display: none;
   }
 
-  .live-map-mobile-offset {
-    margin-top: 1.5rem;
-  }
-
   .driver-info-edit {
     display: none;
   }
 
   .route-alert-box {
+    display: none;
     margin-left: auto;
     margin-right: auto;
   }
 
   .margin-left-offset-mobile {
     margin-left: 2rem;
+  }
+
+  .mobile-center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .margin-left-map-mobile {
@@ -358,11 +438,24 @@ p {
   }
 
   .stop-profile-map-mobile {
-    width: 200px;
+    width: 90%;
     height: 200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .alert-button-div {
+    display: none;
+  }
+
+  .list-map-div {
+    margin-top: 1rem;
+  }
+
+  .stop-profile-map-div {
+    height: 250px;
+    margin-top: 0;
   }
 }
 
@@ -376,6 +469,14 @@ p {
   }
 
   .mobile-bar {
+    display: none;
+  }
+
+  .alert-button-div-mobile {
+    display: none;
+  }
+
+  .mobile-alerts {
     display: none;
   }
 }
