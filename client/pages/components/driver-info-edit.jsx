@@ -42,9 +42,9 @@ export default class DriverInfoEdit extends React.Component {
 
     return (
 
-     <div className=" driver-info-edit blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
+     <div className=" driver-info-edit blue-box box-padding blue-text rounted-box driver-info-margin">
 
-       <div className="  font-regular blue-text ">
+       <div className="  blue-text ">
          <form onSubmit={this.handleSubmit}>
 
            <div className="row driver-info-row " >
@@ -71,7 +71,7 @@ export default class DriverInfoEdit extends React.Component {
            </div>
 
            <div className='align-right'>
-             <button className="save-button rounded-button font-regular blue-text"
+             <button className="save-button rounded-button  blue-text"
                type="submit" value="Submit">Save</button>
            </div>
 
@@ -83,56 +83,3 @@ export default class DriverInfoEdit extends React.Component {
   }
 
 }
-
-// export default function DriverInfoEdit() {
-//   fetch('/api/driverinfo/1'
-//   )
-//     .then(response => response.json())
-//     .then(result => {
-
-//       console.log(result);
-//     })
-//     .catch(error => {
-//       console.error('Error:', error);
-//     });
-//   return (
-
-//     <div className=" driver-info-edit blue-box font-regular box-padding blue-text rounted-box driver-info-margin">
-
-//       <div className="  font-regular blue-text ">
-//         <form onSubmit={handleSubmit}>
-
-//           <div className="row driver-info-row " >
-//             <div className="width-50 vehicle-info-col">
-//               <table>
-//                 <tbody>
-//                   <tr>
-//                     <td><label>Name:</label></td>
-//                     <td><input type="text" /></td>
-//                   </tr>
-//                   <tr>
-//                     <td><label>Phone:</label></td>
-//                     <td><input type="text" /></td>
-//                   </tr>
-//                   <tr>
-//                     <td><label>Email:</label></td>
-//                     <td><input type="text" /></td>
-//                   </tr>
-//                 </tbody>
-//               </table>
-
-//             </div>
-
-//           </div>
-
-//           <div className='align-right'>
-//             <button className="save-button rounded-button font-regular blue-text"
-//             type="submit" value="Submit">Save</button>
-//           </div>
-
-//         </form>
-//       </div>
-//     </div>
-
-//   );
-// }

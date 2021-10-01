@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MapList from './components/list-map';
 
 export default class VehicleList extends React.Component {

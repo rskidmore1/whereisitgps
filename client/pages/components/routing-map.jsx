@@ -19,13 +19,6 @@ class RoutingMap extends React.Component {
       link: ''
     };
 
-    // fetch(`/api/vehicleinfo/${this.props.vehicleId}`)
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     this.setState({ vehicle: result });
-
-    //   });
-
   }
 
   onMapClicked(mapProps, map, clickEvent) {
@@ -89,7 +82,6 @@ class RoutingMap extends React.Component {
                 google={this.props.google}
                 containerStyle={containerStyle}
                 initialCenter={this.state.vehicleLocation}
-                // initialCenter={this.props.vehicleLocation}
                 zoom={10}
                 mapTypeControl={false}
                 scaleControl={false}
@@ -99,17 +91,13 @@ class RoutingMap extends React.Component {
 
                 onClick={this.onMapClicked}>
 
-                {
-                  this.state.route.map(item =>
-
+                {this.state.route.map(item =>
                     <InfoWindow key={item.counter} position={{ lat: item.coords.lat, lng: item.coords.lng }} visible={true}>
                       <div className="blue-text">
                         <p>Stop {item.counter}</p>
                       </div>
                     </InfoWindow>
-
-                  )}
-
+                )}
               </Map >
           </div>
           <div>

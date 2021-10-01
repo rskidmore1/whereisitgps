@@ -12,16 +12,12 @@ export default class VehicleInfo extends React.Component {
   }
 
   handleSubmit(event) {
-
     const vehicle = { name: event.target[0].value, make: event.target[2].value, model: event.target[4].value, year: event.target[1].value, color: event.target[3].value, plate: event.target[5].value };
-
     fetch('/api/vehicleinfo/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-
       },
-
       body: JSON.stringify(vehicle)
     })
       .then(response => response.json())
