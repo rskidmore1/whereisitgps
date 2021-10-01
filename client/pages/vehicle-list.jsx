@@ -57,7 +57,7 @@ export default class VehicleList extends React.Component {
           {this.state.vehiclesList.map(vehicle =>
             <div onMouseEnter={this.onMouseEnterHandler}
               onMouseLeave={this.onMouseLeaveHandler}
-              key={vehicle.vehicleId} id={vehicle.vehicleId} className="vehicle-list-item box-two-thirds blue-text list-margin list-padding "
+              key={vehicle.vehicleId} id={vehicle.vehicleId} className="vehicle-list-item box-two-thirds blue-text list-margin list-padding rounted-box "
             >
 
               <a href={'#vehicleprofile?vehicleId=' + vehicle.vehicleId} className="nav-a row">
@@ -88,8 +88,9 @@ export default class VehicleList extends React.Component {
         <div className="one-third ">
           <div className="center">
             <div className={this.state.hover ? 'map-outer-div' : '  map-outer-div hidden'}>
-
-              <MapList coords={this.state.mapCoords} />
+              <div className="list-map-margin">
+                <MapList coords={this.state.mapCoords} />
+              </div>
             </div>
           </div>
         </div>
