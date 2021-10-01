@@ -49,8 +49,9 @@ I know this product really well. Look at my resume. You'll understand why. I lov
   * Profile: View stop location, vehicle name, stop duration, and pin location on map
 
 ### Gifs
-![deepin-screen-recorder_chromium-browser_20210928174352](https://user-images.githubusercontent.com/11698908/135184255-62c4ceeb-4d96-4d9b-99a1-efa9249d12a7.gif)
-![deepin-screen-recorder_chromium-browser_20210928174216](https://user-images.githubusercontent.com/11698908/135184257-6bb8801b-7f5d-42e1-8c27-e9c862965a8d.gif)
+![deepin-screen-recorder_Select area_20211001155718](https://user-images.githubusercontent.com/11698908/135695547-9b244d43-4279-446f-bc37-b9d0473a0794.gif)
+![deepin-screen-recorder_chromium-browser_20211001155537](https://user-images.githubusercontent.com/11698908/135695549-45a5c5a4-f59a-4b3e-a323-75917d55ad3b.gif)
+
 
 ### Stretch Features
 * Convert frontend to Material UI
