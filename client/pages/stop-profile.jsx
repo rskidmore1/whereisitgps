@@ -1,6 +1,12 @@
 import React from 'react';
 import MapList from './components/list-map';
 
+import Geocode from 'react-geocode';
+Geocode.setLanguage('en');
+Geocode.setRegion('us');
+Geocode.setLocationType('ROOFTOP');
+Geocode.setApiKey(process.env.GOOGLE_MAPS_TOKEN);
+
 export default class StopProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +29,19 @@ export default class StopProfile extends React.Component {
         if (!result) {
           this.setState({ networkError: 'Results are empty.' });
         } else {
-          this.setState({ stop: result, isLoaded: true });
+
+          Geocode.fromLatLng(result.stopLocation.lat, result.stopLocation.lng).then(
+            response => {
+              const address = response.results[0].formatted_address;
+              result.stopAddress = address;
+              this.setState({ stop: result, isLoaded: true });
+
+            },
+            error => {
+              console.error(error);
+            }
+          );
+
         }
 
       })
@@ -36,7 +54,7 @@ export default class StopProfile extends React.Component {
 
   render() {
 
-    const { stopLocation, vehicleId, beginTime, endTime } = this.state.stop;
+    const { stopAddress, vehicleId, beginTime, endTime } = this.state.stop;
     return (
       <React.Fragment>
       <div className="two-third  ">
@@ -70,7 +88,7 @@ export default class StopProfile extends React.Component {
               <table>
                 <tbody>
                   <tr>
-                    <td className=" blue-text ">lat: {stopLocation.lat}&deg; lng: {stopLocation.lng} &deg; </td>
+                     <td className=" blue-text ">{stopAddress} </td>
                   </tr>
                 </tbody>
               </table>
