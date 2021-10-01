@@ -168,6 +168,11 @@ td {
   margin: 0;
 }
 
+.stop-profile-map-desktop {
+  width: 450px;
+  margin-top: 1rem;
+}
+
 .nav-box {
   width: 8rem;
   height: 12rem;
@@ -428,6 +433,10 @@ p {
     margin-right: auto;
   }
 
+  .stop-profile-map-desktop {
+    display: none;
+  }
+
   .margin-left-offset-mobile {
     margin-left: 2rem;
   }
@@ -474,6 +483,10 @@ p {
   }
 
   .vehicle-info-mobile {
+    display: none;
+  }
+
+  .stop-profile-map-mobile {
     display: none;
   }
 

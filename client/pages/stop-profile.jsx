@@ -76,7 +76,9 @@ export default class StopProfile extends React.Component {
               </table>
 
           </div>
-
+          <div className="stop-profile-map-desktop">
+            <MapList coords={this.state.stop.stopLocation} />
+          </div>
       </div>
       <div className="one-third stop-profile-map-div">
 
