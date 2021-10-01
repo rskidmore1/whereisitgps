@@ -113,7 +113,7 @@ class RoutingMap extends React.Component {
               </Map >
           </div>
           <div>
-              <button className="save-button blue-text center send-button-margin-top" onClick={this.sendText}>Text To Driver</button>
+            <button className="save-button blue-text mobile-center send-button-margin-top" onClick={this.sendText}>Text To Driver</button>
           </div>
           <a href={this.state.link}>{this.state.link}</a>
 

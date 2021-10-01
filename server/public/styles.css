@@ -157,15 +157,20 @@ td {
 }
 
 .one-third {
-  width: 22%;
+  width: 26%;
 }
 
 .two-third {
-  width: 56%;
+  width: 45%;
 }
 
 .vehicle-info-margin {
   margin: 0;
+}
+
+.stop-profile-map-desktop {
+  width: 450px;
+  margin-top: 1rem;
 }
 
 .nav-box {
@@ -187,7 +192,8 @@ td {
 
 .map-div {
   height: 400px;
-  width: 400px;
+  width: 550px;
+  margin-top: 1rem;
 }
 
 .check-box {
@@ -222,6 +228,7 @@ td {
   background-color: lightgray;
   width: 10rem;
   height: 10rem;
+  margin-top: 4rem;
 }
 
 .photo-margin-div {
@@ -268,7 +275,10 @@ input[type="file"] {
 .list-map-div {
   height: 200px;
   width: 100%;
-  margin-top: 6rem;
+}
+
+.list-map-margin {
+  margin-top: 5rem;
 }
 
 .list-margin {
@@ -302,6 +312,10 @@ img {
 
 .vehicle-photo {
   object-fit: scale-down;
+}
+
+.alert-button-margin {
+  margin: 1rem;
 }
 
 .photo-form {
@@ -419,6 +433,10 @@ p {
     margin-right: auto;
   }
 
+  .stop-profile-map-desktop {
+    display: none;
+  }
+
   .margin-left-offset-mobile {
     margin-left: 2rem;
   }
@@ -465,6 +483,10 @@ p {
   }
 
   .vehicle-info-mobile {
+    display: none;
+  }
+
+  .stop-profile-map-mobile {
     display: none;
   }
 

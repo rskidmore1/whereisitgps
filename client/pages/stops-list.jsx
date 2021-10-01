@@ -93,8 +93,10 @@ export default class TripsList extends React.Component {
         <div className="one-third ">
           <div className="center">
             <div className={this.state.hover ? '' : ' hidden'}>
+            <div className="list-map-margin">
+                {this.state.mapCoords ? <MapList coords={this.state.mapCoords} /> : 'map not loading'}
 
-              <MapList coords={this.state.mapCoords} />
+            </div>
             </div>
           </div>
         </div>
