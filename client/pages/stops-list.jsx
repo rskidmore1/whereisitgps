@@ -2,6 +2,12 @@ import React from 'react';
 
 import MapList from './components/list-map';
 
+import Geocode from 'react-geocode';
+Geocode.setLanguage('en');
+Geocode.setRegion('us');
+Geocode.setLocationType('ROOFTOP');
+Geocode.setApiKey(process.env.GOOGLE_MAPS_TOKEN);
+
 export default class TripsList extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +26,27 @@ export default class TripsList extends React.Component {
         if (!result) {
           this.setState({ networkError: 'Results are empty.' });
         } else {
+
+          const resultsArr = [];
+          result.map(res =>
+            // res.stopAddress = 'whatever'
+            Geocode.fromLatLng(res.stopLocation.lat, res.stopLocation.lng).then(
+              response => {
+                const address = response.results[0].formatted_address;
+                res.stopAddress = address;
+                // console.log(result);
+                resultsArr.push(res);
+                this.setState({ stop: resultsArr, isLoaded: true });
+
+              },
+              error => {
+                console.error(error);
+              }
+            )
+          );
+
           this.setState({ stopsList: result, isLoaded: true });
+
         }
       })
       .catch(err => {
@@ -80,8 +106,11 @@ export default class TripsList extends React.Component {
                 <table>
                   <tbody>
                     <tr>
-                      <td className=" blue-text ">lat: {stop.stopLocation.lat}&deg; lng: {stop.stopLocation.lng} &deg; </td>
+                      {/* <td className=" blue-text ">lat: {stop.stopLocation.lat}&deg; lng: {stop.stopLocation.lng} &deg; </td> */}
+                      <td className=" blue-text ">{stop.stopAddress} </td>
+
                     </tr>
+
                   </tbody>
                 </table>
               </a>
