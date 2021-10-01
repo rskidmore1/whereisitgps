@@ -157,11 +157,11 @@ td {
 }
 
 .one-third {
-  width: 22%;
+  width: 26%;
 }
 
 .two-third {
-  width: 56%;
+  width: 45%;
 }
 
 .vehicle-info-margin {
@@ -187,7 +187,8 @@ td {
 
 .map-div {
   height: 400px;
-  width: 400px;
+  width: 550px;
+  margin-top: 1rem;
 }
 
 .check-box {

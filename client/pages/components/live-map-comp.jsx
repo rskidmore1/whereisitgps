@@ -159,7 +159,7 @@ class LiveMapComp extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="map-div  mobile-center ">
+        <div className="map-div  rounted-box mobile-center ">
           <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
             <div ></div>
           </div>
