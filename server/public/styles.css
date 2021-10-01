@@ -223,6 +223,7 @@ td {
   background-color: lightgray;
   width: 10rem;
   height: 10rem;
+  margin-top: 4rem;
 }
 
 .photo-margin-div {
@@ -269,6 +270,9 @@ input[type="file"] {
 .list-map-div {
   height: 200px;
   width: 100%;
+}
+
+.list-map-margin {
   margin-top: 6rem;
 }
 
@@ -303,6 +307,10 @@ img {
 
 .vehicle-photo {
   object-fit: scale-down;
+}
+
+.alert-button-margin {
+  margin: 1rem;
 }
 
 .photo-form {

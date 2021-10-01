@@ -43,7 +43,7 @@ export default class PhotoUpload extends React.Component {
   render() {
     return (
 
-         <div className="center" onClick={this.showUpload}>
+         <div className="center " onClick={this.showUpload}>
             <div className="vehicle-photo-div center">
               <div className=" photo-margin-div">
 

@@ -4,11 +4,18 @@ import PhotoUpload from './components/photo-upload';
 import DriverInfoEdit from './components/driver-info-edit';
 import AlertButtonBox from './components/alert-button-box';
 import DriverInfoMobile from './components/driver-info-mobile';
+import MapList from './components/list-map';
+
 export default class VehicleProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      vehicle: {},
+      vehicle: {
+        currentLocation: {
+          lat: '33.63134684',
+          lng: '-117.91249506'
+        }
+      },
       vehicleId: this.props.vehicleId,
       driver: {},
       isLoaded: false,
@@ -47,11 +54,17 @@ export default class VehicleProfile extends React.Component {
 
         <VehicleInfoEdit currentVehicle={currentVehicle} />
         <DriverInfoMobile />
+          <div className="list-margin">
+
+          <MapList coords={currentVehicle.currentLocation} />
+        </div>
+
         <AlertButtonBox vehicleId={currentVehicle.vehicleId} />
       </div>
       <div className="one-third ">
+          <DriverInfoEdit />
         <PhotoUpload vehicleId={currentVehicle.vehicleId} photo={currentVehicle.photo} />
-        <DriverInfoEdit />
+
         </div>
 
       </React.Fragment>
