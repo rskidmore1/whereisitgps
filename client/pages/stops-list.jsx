@@ -29,12 +29,10 @@ export default class TripsList extends React.Component {
 
           const resultsArr = [];
           result.map(res =>
-            // res.stopAddress = 'whatever'
             Geocode.fromLatLng(res.stopLocation.lat, res.stopLocation.lng).then(
               response => {
                 const address = response.results[0].formatted_address;
                 res.stopAddress = address;
-                // console.log(result);
                 resultsArr.push(res);
                 this.setState({ stop: resultsArr, isLoaded: true });
 
@@ -89,12 +87,10 @@ export default class TripsList extends React.Component {
                     <tr>
                       <td className=" blue-text font-heavy list-item-right-padding">Vehicle: </td>
                       <td className=" blue-text list-bottom-padding">Truck{stop.vehicleId}</td>
-
                     </tr>
                     <tr>
                       <td className=" blue-text font-heavy list-item-right-padding">Duration: </td>
                       <td className=" blue-text list-bottom-padding">{((new Date(stop.beginTime).getTime() - new Date(stop.endTime).getTime()) / 1000) / 60 } minutes</td>
-
                     </tr>
                     <tr>
                       <td className=" blue-text font-heavy list-item-right-padding">Address:</td>
@@ -106,7 +102,6 @@ export default class TripsList extends React.Component {
                 <table>
                   <tbody>
                     <tr>
-                      {/* <td className=" blue-text ">lat: {stop.stopLocation.lat}&deg; lng: {stop.stopLocation.lng} &deg; </td> */}
                       <td className=" blue-text ">{stop.stopAddress} </td>
 
                     </tr>

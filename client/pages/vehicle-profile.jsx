@@ -48,24 +48,24 @@ export default class VehicleProfile extends React.Component {
       <React.Fragment>
       <div className="two-third  ">
         <div className={this.state.isLoaded ? 'summon-spinner lds-circle center hidden' : 'summon-spinner lds-circle center '}>
-          <div ></div>
+            <div ></div>
         </div>
         <p>{this.state.networkError}</p>
 
         <VehicleInfoEdit currentVehicle={currentVehicle} />
         <DriverInfoMobile />
-          <div className="list-margin">
 
+        <div className="list-margin">
           <MapList coords={currentVehicle.currentLocation} />
         </div>
 
         <AlertButtonBox vehicleId={currentVehicle.vehicleId} />
       </div>
       <div className="one-third ">
-          <DriverInfoEdit />
+        <DriverInfoEdit />
         <PhotoUpload vehicleId={currentVehicle.vehicleId} photo={currentVehicle.photo} />
 
-        </div>
+      </div>
 
       </React.Fragment>
     );

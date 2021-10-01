@@ -19,11 +19,8 @@ export default class MobileNavBar extends React.Component {
 
     return (
       <React.Fragment>
-
         <div className="nav-mobile">
-
           <Drawer />
-
         </div>
       </React.Fragment>
     );
@@ -38,13 +35,11 @@ export class Drawer extends React.Component {
   }
 
   toggle(e) {
-
     if (this.state.isOpen) {
       this.setState({ isOpen: false });
     } else {
       this.setState({ isOpen: true });
     }
-
   }
 
   render() {

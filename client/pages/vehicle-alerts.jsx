@@ -82,7 +82,7 @@ export default class VehicleAlerts extends React.Component {
                   </div>
 
                 <div className=' update-div'>
-                    <button className="save-button rounded-button font-regular blue-text" type="submit" value="Submit">Update</button>
+                    <button className="save-button rounded-button  blue-text" type="submit" value="Submit">Update</button>
                   </div>
 
                 </div>
@@ -99,7 +99,7 @@ export default class VehicleAlerts extends React.Component {
                 </div>
 
                 <div className=' update-div'>
-                  <button className="save-button rounded-button font-regular blue-text list-margin " type="submit" value="Submit">Update</button>
+                  <button className="save-button rounded-button blue-text list-margin " type="submit" value="Submit">Update</button>
                 </div>
 
               </div>
