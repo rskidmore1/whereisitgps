@@ -4,7 +4,7 @@
 A web application for business owners who want to track their vehicles and manage their drivers in real time. 
 
 ### Why build this?
-I know this product really well. And I have a experience in the industry. I love cars. I like software that plays in the real and digital world (as a hobby mostly). With solid domain knowledge, I could focus solely on the process of building a full stack application. React really came to life. Node made bouncing from frontend to backend seamless. It was a really fun project. Also I'm not aware of a complete, out of the box fleet manager built with a contemporary stack quite like this, just on github, that isn't intended to be a modular piece of something else. Over all, I'm very happy with it. 
+I know this product really well. And I have a experience in the industry. I love cars. I like software that plays in the real and digital world (as a hobby mostly). With solid domain knowledge, I could focus solely on the process of building a full stack application. React really came to life. Node made bouncing from front end to back end seamless. It was a really fun project. Also I'm not aware of a complete, out of the box fleet manager built with a contemporary stack quite like this, just on GitHub, that isn't intended to be a modular piece of something else. Over all, I'm very happy with it. 
 
 ### Live Link 
 [Heroku](https://whereisitgps.herokuapp.com/?)
