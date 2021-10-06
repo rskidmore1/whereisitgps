@@ -15,7 +15,7 @@ I know this product really well. And I have a experience in the industry. I love
   * State: To pass data around classes
   * Props: To pass data to components
   * Used map() to create list views from api data
-  * Used hashrouting to create page navigation
+  * Used hash routing to create page navigation
 * google-maps-react 
   * Creates the Live Map and list maps
   * Used onClick events to store GPS coordinates to state for the Routing feature
